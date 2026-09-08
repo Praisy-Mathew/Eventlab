@@ -1349,7 +1349,7 @@ h6 {
   animation-iteration-count: infinite;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 60px auto;
+  background-size: 220px auto;
   width: 100%;
   height: 100%;
 }
@@ -3826,8 +3826,20 @@ h6 {
   }
 }
 .main-header__logo img {
+  width: 340px;
   max-width: 100%;
   height: auto;
+  display: block;
+}
+@media (max-width: 991px) {
+  .main-header__logo img {
+    width: 280px;
+  }
+}
+@media (max-width: 575px) {
+  .main-header__logo img {
+    width: 230px;
+  }
 }
 .main-header__right {
   display: flex;
@@ -4446,6 +4458,11 @@ body.megamenu-popup-active .mobile-nav__content {
 .mobile-nav__content .logo-box {
   margin-bottom: 40px;
   display: flex;
+}
+.mobile-nav__content .logo-box img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
 }
 
 .mobile-nav__close {
@@ -6480,8 +6497,10 @@ li:hover .sidebar__comments__icon::after {
   margin-bottom: 18px;
 }
 .footer-widget__logo img {
+  width: 320px;
   max-width: 100%;
   height: auto;
+  display: block;
 }
 .footer-widget__text {
   margin-bottom: 22px;
@@ -7088,17 +7107,71 @@ li:hover .sidebar__comments__icon::after {
 .hero-two__container {
   max-width: 1666px;
 }
+@media (max-width: 767px) {
+  .hero-two__container {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+  }
+}
 .hero-two__carousel {
   width: 100%;
-  padding: 40px 0;
+  padding: 35px 0;
   overflow: hidden;
+}
+@media (max-width: 767px) {
+  .hero-two__carousel {
+    padding: 20px 0 30px 0;
+  }
+}
+.hero-two__carousel .swiper-wrapper {
+  align-items: center;
+}
+.hero-two__carousel .swiper-slide {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-two__carousel .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0.75;
+}
+.hero-two__carousel .swiper-slide-active {
+  opacity: 1;
+  z-index: 5;
+}
+.hero-two__carousel__image {
+  position: relative;
+  width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero-two__carousel__image a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border-radius: inherit;
+  overflow: hidden;
+}
+.hero-two__carousel__image a:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 .hero-two__carousel__image img {
   width: 100%;
-  height: auto;
+  height: 406px;
   display: block;
   object-fit: cover;
-  border-radius: 30px;
+  object-position: center;
+  border-radius: inherit;
+  transition: transform 0.4s ease;
+}
+.hero-two__carousel__image:hover img {
+  transform: scale(1.03);
 }
 .hero-two__shape-1, .hero-two__shape-2 {
   max-width: 100%;
@@ -15339,4 +15412,487 @@ body.boxed-wrapper .page-wrapper {
     left: 0px;
   }
 }
+
+/* Formula Section */
+.formula-section {
+  position: relative;
+}
+.formula-card {
+  transition: all 0.35s ease;
+}
+.formula-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+  border-color: rgba(208, 51, 174, 0.5) !important;
+}
+.formula-card:hover .formula-icon {
+  transform: scale(1.1);
+}
+.formula-icon {
+  transition: all 0.35s ease;
+}
+
+/* Services Tabs */
+.services-tabs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  border-bottom: none;
+  margin-bottom: 45px;
+  background: #F4F7FC;
+  padding: 8px 12px;
+  border-radius: 60px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1.5px solid #E2E8F6;
+  box-shadow: 0 4px 20px rgba(13, 26, 66, 0.04);
+}
+.services-tab-btn {
+  padding: 13px 26px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #0D1A42;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F6 !important;
+  border-radius: 50px !important;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+  letter-spacing: 0.3px;
+}
+.services-tab-btn .tab-num {
+  font-size: 12px;
+  font-weight: 900;
+  color: #425CFE;
+  background: rgba(66, 92, 254, 0.1);
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-family: inherit;
+  transition: all 0.35s ease;
+}
+.services-tab-btn:hover {
+  border-color: #D033AE !important;
+  color: #D033AE;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(208, 51, 174, 0.15);
+}
+.services-tab-btn.active {
+  background: linear-gradient(90deg, #D033AE 0%, #425CFE 100%) !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+  box-shadow: 0 10px 25px rgba(208, 51, 174, 0.35) !important;
+  transform: translateY(-2px);
+}
+.services-tab-btn.active .tab-num {
+  background: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+
+/* Upcoming Cards */
+.upcoming-card {
+  background: #FFFFFF;
+  border-radius: 26px;
+  border: 1.5px solid #E6EAF8;
+  box-shadow: 0 10px 30px rgba(13, 26, 66, 0.04);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+}
+.upcoming-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(66, 92, 254, 0.12);
+  border-color: rgba(66, 92, 254, 0.35);
+}
+.upcoming-card__image {
+  position: relative;
+  overflow: hidden;
+  height: 240px;
+}
+.upcoming-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.upcoming-card:hover .upcoming-card__image img {
+  transform: scale(1.06);
+}
+.upcoming-card__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: linear-gradient(90deg, #D033AE 0%, #425CFE 100%);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(208, 51, 174, 0.35);
+  z-index: 2;
+}
+.upcoming-card__category {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(13, 26, 66, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.upcoming-card__content {
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.upcoming-card__date {
+  font-size: 12px;
+  font-weight: 800;
+  color: #D033AE;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+.upcoming-card__title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0D1A42;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+.upcoming-card__text {
+  font-size: 14px;
+  color: #4A5375;
+  line-height: 1.65;
+  margin-bottom: 22px;
+  flex-grow: 1;
+}
+.upcoming-card__meta {
+  padding-top: 16px;
+  border-top: 1px dashed #E6EAFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+.upcoming-card__location {
+  color: #8C93A6;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+.upcoming-card__btn {
+  color: #425CFE;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+.upcoming-card__btn:hover {
+  color: #D033AE;
+  transform: translateX(3px);
+}
+
+/*--------------------------------------------------------------
+# Mission, Vision & Values (Unified Section)
+--------------------------------------------------------------*/
+.mission-vision-values {
+  position: relative;
+  background: radial-gradient(circle at 15% 15%, rgba(208, 51, 174, 0.05) 0%, transparent 40%),
+              radial-gradient(circle at 85% 85%, rgba(66, 92, 254, 0.06) 0%, transparent 45%),
+              #F8FAFE;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.mvv-row-card {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 32px;
+  border: 1px solid #E5EDFC;
+  box-shadow: 0 16px 45px -12px rgba(15, 23, 58, 0.05), 0 0 1px 1px rgba(255, 255, 255, 0.9) inset;
+  padding: 50px 48px;
+  margin-bottom: 34px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+.mvv-row-card:last-child {
+  margin-bottom: 0;
+}
+.mvv-row-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px -12px rgba(15, 23, 58, 0.1) !important;
+}
+
+/* Row 1: Mission Card */
+.mvv-row-card--mission {
+  border-left: 6px solid #D033AE;
+}
+
+/* Row 2: Vision Card (Dark Luxury Midnight Card) */
+.mvv-row-card--vision {
+  background: linear-gradient(135deg, #0A0F26 0%, #121A3E 60%, #1C1238 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 60px -15px rgba(10, 15, 38, 0.4), 0 0 1px 1px rgba(255, 255, 255, 0.1) inset;
+  border-left: 6px solid #425CFE;
+}
+.mvv-row-card--vision .mvv-row-card__title {
+  color: #FFFFFF;
+}
+
+/* Row 3: Values Card */
+.mvv-row-card--values {
+  border-left: 6px solid #D033AE;
+}
+
+/* Header Elements */
+.mvv-row-card__header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.mvv-row-card__icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  transition: transform 0.35s ease;
+}
+.mvv-row-card:hover .mvv-row-card__icon {
+  transform: scale(1.08) rotate(3deg);
+}
+.mvv-row-card__icon--magenta {
+  background: linear-gradient(135deg, #D033AE 0%, #F055CE 100%);
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px rgba(208, 51, 174, 0.3);
+}
+.mvv-row-card__icon--blue {
+  background: linear-gradient(135deg, #425CFE 0%, #6E84FE 100%);
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px rgba(66, 92, 254, 0.35);
+}
+.mvv-row-card__icon--gradient {
+  background: linear-gradient(135deg, #425CFE 0%, #D033AE 100%);
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px rgba(66, 92, 254, 0.28);
+}
+.mvv-row-card__title {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #0A1128;
+  margin: 0;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+.mvv-row-card__lead {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #45506E;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* Mission List & Items */
+.mvv-mission-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.mvv-mission-item {
+  background: #F8FAFE;
+  border: 1px solid #E5EDFC;
+  border-radius: 20px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mvv-mission-item:hover {
+  background: #FFFFFF;
+  border-color: rgba(208, 51, 174, 0.4);
+  transform: translateX(8px);
+  box-shadow: 0 12px 30px rgba(208, 51, 174, 0.1);
+}
+.mvv-mission-item__num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #D033AE;
+  background: rgba(208, 51, 174, 0.1);
+  padding: 6px 12px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+.mvv-mission-item:hover .mvv-mission-item__num {
+  background: #D033AE;
+  color: #FFFFFF;
+}
+.mvv-mission-item__text {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #1A233F;
+  font-weight: 500;
+}
+
+/* Vision Box (Inside Dark Card) */
+.mvv-vision-box {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  padding: 34px 38px;
+  backdrop-filter: blur(10px);
+  transition: all 0.35s ease;
+}
+.mvv-vision-box:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(66, 92, 254, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+.mvv-vision-box__icon-quote {
+  font-size: 26px;
+  color: #6E84FE;
+  opacity: 0.6;
+  margin-bottom: 12px;
+}
+.mvv-vision-box__text {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-size: 19px;
+  line-height: 1.8;
+  color: #FFFFFF;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Values Header */
+.mvv-values-header {
+  border-bottom: 1px solid #EBF0FF;
+  padding-bottom: 28px;
+  margin-bottom: 34px;
+}
+
+/* Value Cards Grid */
+.mvv-value-item {
+  background: #F8FAFE;
+  border: 1px solid #E5EDFC;
+  border-radius: 24px;
+  padding: 30px 26px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+.mvv-value-item:hover {
+  background: #FFFFFF;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(66, 92, 254, 0.1);
+}
+.mvv-value-item--magenta:hover {
+  border-color: rgba(208, 51, 174, 0.4);
+  box-shadow: 0 20px 40px rgba(208, 51, 174, 0.1);
+}
+.mvv-value-item--blue:hover {
+  border-color: rgba(66, 92, 254, 0.4);
+  box-shadow: 0 20px 40px rgba(66, 92, 254, 0.1);
+}
+.mvv-value-item__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.mvv-value-item__icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: transform 0.35s ease;
+}
+.mvv-value-item:hover .mvv-value-item__icon {
+  transform: scale(1.14) rotate(4deg);
+}
+.mvv-value-item--magenta .mvv-value-item__icon {
+  background: linear-gradient(135deg, rgba(208, 51, 174, 0.12) 0%, rgba(208, 51, 174, 0.22) 100%);
+  color: #D033AE;
+}
+.mvv-value-item--blue .mvv-value-item__icon {
+  background: linear-gradient(135deg, rgba(66, 92, 254, 0.12) 0%, rgba(66, 92, 254, 0.22) 100%);
+  color: #425CFE;
+}
+.mvv-value-item__num {
+  font-family: 'Outfit', monospace, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #94A3B8;
+  letter-spacing: 1px;
+}
+.mvv-value-item__title {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  color: #0A1128;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+.mvv-value-item__text {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #4B5574;
+  margin: 0;
+  flex-grow: 1;
+  font-weight: 450;
+}
+
+@media (max-width: 991px) {
+  .mvv-row-card {
+    padding: 34px 24px;
+    border-radius: 24px;
+  }
+  .mvv-row-card__title {
+    font-size: 26px;
+  }
+  .mvv-vision-box {
+    padding: 24px 20px;
+  }
+  .mvv-vision-box__text {
+    font-size: 16.5px;
+  }
+}
+
 /*# sourceMappingURL=aigence.css.map */

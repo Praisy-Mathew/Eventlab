@@ -31,6 +31,171 @@
 
     <!-- template styles -->
     <link rel="stylesheet" href="assets/css/aigence.css" />
+    <style>
+        /* =========================================================
+           "Your Event, Our Expertise" Showcase Styling (Side-by-Side)
+        ========================================================= */
+        .our-expertise-section {
+            background-color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+        .our-expertise-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(66, 92, 254, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .our-expertise-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(208, 51, 174, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Left Side Content */
+        .expertise-lead-desc {
+            font-size: 17px;
+            color: #4A5375;
+            line-height: 1.7;
+            font-weight: 500;
+            max-width: 440px;
+        }
+
+        /* Right Side Horizontal Point Cards */
+        .expertise-h-card {
+            background: #FFFFFF;
+            border: 1.5px solid #EBF0FF;
+            border-radius: 18px;
+            padding: 15px 18px;
+            min-height: 68px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(13, 26, 66, 0.03);
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .expertise-h-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            bottom: 14px;
+            width: 3.5px;
+            border-radius: 0 4px 4px 0;
+            background: transparent;
+            transition: background 0.3s ease;
+        }
+        .expertise-h-card:hover {
+            transform: translateY(-4px);
+            background: #FFFFFF;
+        }
+        .expertise-h-card--blue:hover {
+            border-color: rgba(66, 92, 254, 0.4);
+            box-shadow: 0 12px 28px rgba(66, 92, 254, 0.12);
+        }
+        .expertise-h-card--blue:hover::before {
+            background: #425CFE;
+        }
+        .expertise-h-card--magenta:hover {
+            border-color: rgba(208, 51, 174, 0.4);
+            box-shadow: 0 12px 28px rgba(208, 51, 174, 0.12);
+        }
+        .expertise-h-card--magenta:hover::before {
+            background: #D033AE;
+        }
+
+        .expertise-h-card__icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            transition: all 0.35s ease;
+        }
+        .expertise-h-card--blue .expertise-h-card__icon {
+            background: rgba(66, 92, 254, 0.08);
+            color: #425CFE;
+            border: 1px solid rgba(66, 92, 254, 0.15);
+        }
+        .expertise-h-card--blue:hover .expertise-h-card__icon {
+            background: linear-gradient(135deg, #425CFE 0%, #2940D3 100%);
+            color: #FFFFFF;
+            transform: scale(1.1) rotate(-4deg);
+            box-shadow: 0 8px 18px rgba(66, 92, 254, 0.35);
+            border-color: transparent;
+        }
+        .expertise-h-card--magenta .expertise-h-card__icon {
+            background: rgba(208, 51, 174, 0.08);
+            color: #D033AE;
+            border: 1px solid rgba(208, 51, 174, 0.15);
+        }
+        .expertise-h-card--magenta:hover .expertise-h-card__icon {
+            background: linear-gradient(135deg, #D033AE 0%, #B81896 100%);
+            color: #FFFFFF;
+            transform: scale(1.1) rotate(4deg);
+            box-shadow: 0 8px 18px rgba(208, 51, 174, 0.35);
+            border-color: transparent;
+        }
+
+        .expertise-h-card__content {
+            flex-grow: 1;
+        }
+        .expertise-h-card__title {
+            font-size: 15px;
+            font-weight: 750;
+            color: #0D1A42;
+            line-height: 1.35;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+        .expertise-h-card:hover .expertise-h-card__title {
+            color: #000000;
+        }
+
+        @media (max-width: 991px) {
+            .expertise-left-content {
+                margin-bottom: 25px;
+                text-align: center;
+            }
+            .expertise-lead-desc {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        @media (max-width: 575px) {
+            .expertise-h-card {
+                padding: 12px 14px;
+                min-height: 64px;
+            }
+            .expertise-h-card__icon {
+                width: 38px;
+                height: 38px;
+                min-width: 38px;
+                font-size: 15px;
+                border-radius: 12px;
+            }
+            .expertise-h-card__title {
+                font-size: 13.5px;
+            }
+        }
+    </style>
 </head>
 
 <body class="custom-cursor">
@@ -39,7 +204,7 @@
     <div class="custom-cursor__cursor-two"></div>
 
     <div class="preloader">
-        <div class="preloader__image" style="background-image: url(assets/images/Eventslablogo.png);"></div>
+        <div class="preloader__image" style="background-image: url('assets/images/logo event.png');"></div>
     </div>
     <!-- /.preloader -->
     <div class="page-wrapper">
@@ -53,7 +218,7 @@
                         </li>
                         <li>
                             <span class="topbar__info__icon"><i class="icon-email"></i></span>
-                            <span><a href="mailto:hello@eventlabs.in">hello@eventlabs.in</a></span>
+                            <span><a href="mailto:Info@eventlab.events">Info@eventlab.events</a></span>
                         </li>
                         <li>
                             <span class="topbar__info__icon"><i class="icon-phone"></i></span>
@@ -74,7 +239,7 @@
                 <div class="main-header__inner">
                     <div class="main-header__logo logo-retina">
                         <a href="index.html">
-                            <img src="assets/images/Eventslab logo.png" alt="Eventslab Logo" width="250">
+                            <img src="assets/images/logo event.png" alt="Eventslab Logo" width="340">
                         </a>
                     </div><!-- /.main-header__logo -->
                     <div class="main-header__right">
@@ -88,6 +253,9 @@
                                 </li>
                                 <li>
                                     <a href="events.html">Events</a>
+                                </li>
+                                <li>
+                                    <a href="upcoming.html">Upcoming Events</a>
                                 </li>
                                 <li>
                                     <a href="gallery.html">Gallery</a>
@@ -115,7 +283,7 @@
             </div><!-- /.hero-two__bg -->
             <div class="container">
                 <div class="hero-two__content">
-                    <h2 class="hero-two__title wow fadeInUp" data-wow-duration="1500ms">Create Events People Talk About.</h2>
+                    <h2 class="hero-two__title wow fadeInUp" data-wow-duration="1500ms">Where Great Events Are Engineered.</h2>
                     <p class="hero-two__title-2 wow fadeInUp" data-wow-duration="1500ms">EVENTLAB</p>
                     <div class="hero-two__button wow fadeInUp" data-wow-duration="1500ms">
                         <a href="events.html" class="aigence-btn">
@@ -129,85 +297,148 @@
                 <div class="hero-two__carousel aigence-swiper__carousel" data-swiper-options='{
                 "effect": "coverflow",
                 "grabCursor": true,
-                "spaceBetween": 0,
                 "centeredSlides": true,
-                "spaceBetween": 10,
                 "loop": true,
-                "speed": 1000,
+                "speed": 900,
                 "autoplay": {
-                    "delay": 3000
+                    "delay": 3000,
+                    "disableOnInteraction": false,
+                    "pauseOnMouseEnter": true
                 },
                 "coverflowEffect": {
-                    "rotate": 40,
+                    "rotate": 0,
                     "stretch": 0,
-                    "depth": 100,
+                    "depth": 50,
                     "modifier": 1,
                     "slideShadows": false
                 },
                 "breakpoints": {
                     "0": {
-                        "slidesPerView": 1.2
+                        "slidesPerView": 1.25,
+                        "spaceBetween": 14,
+                        "coverflowEffect": {
+                            "rotate": 0,
+                            "stretch": 0,
+                            "depth": 35,
+                            "modifier": 1,
+                            "slideShadows": false
+                        }
                     },
-                    "576": {
-                        "slidesPerView": 2.2
+                    "480": {
+                        "slidesPerView": 1.45,
+                        "spaceBetween": 16,
+                        "coverflowEffect": {
+                            "rotate": 0,
+                            "stretch": 0,
+                            "depth": 50,
+                            "modifier": 1,
+                            "slideShadows": false
+                        }
+                    },
+                    "768": {
+                        "slidesPerView": 2.2,
+                        "spaceBetween": 20,
+                        "coverflowEffect": {
+                            "rotate": 15,
+                            "stretch": 0,
+                            "depth": 75,
+                            "modifier": 1,
+                            "slideShadows": false
+                        }
                     },
                     "992": {
-                        "slidesPerView": 3
+                        "slidesPerView": 3.2,
+                        "spaceBetween": 24,
+                        "coverflowEffect": {
+                            "rotate": 25,
+                            "stretch": 0,
+                            "depth": 90,
+                            "modifier": 1,
+                            "slideShadows": false
+                        }
                     },
                     "1200": {
-                        "slidesPerView": 4
+                        "slidesPerView": 4,
+                        "spaceBetween": 28,
+                        "coverflowEffect": {
+                            "rotate": 30,
+                            "stretch": 0,
+                            "depth": 100,
+                            "modifier": 1,
+                            "slideShadows": false
+                        }
                     }
                 }
             }'>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="hero-two__carousel__image">
-                                <img src="assets/images/event1.png" alt="hero slide" style="height:406px;">
+                                <a href="events.html" aria-label="View Events">
+                                    <img src="assets/images/event1.png" alt="hero slide">
+                                </a>
                             </div>
                         </div><!-- /.swiper-slide -->
                         <div class="swiper-slide">
                             <div class="hero-two__carousel__image">
-                                <img src="assets/images/event2.jpg" alt="hero slide" style="height:406px;">
+                                <a href="events.html" aria-label="View Events">
+                                    <img src="assets/images/event2.jpg" alt="hero slide">
+                                </a>
                             </div>
                         </div><!-- /.swiper-slide -->
                         <div class="swiper-slide">
                             <div class="hero-two__carousel__image">
-                                <img src="assets/images/event3.jpg" alt="hero slide" style="height:406px;">
+                                <a href="events.html" aria-label="View Events">
+                                    <img src="assets/images/event3.jpg" alt="hero slide">
+                                </a>
                             </div>
                         </div><!-- /.swiper-slide -->
                         <div class="swiper-slide">
                             <div class="hero-two__carousel__image">
-                                <img src="assets/images/event4.webp" alt="hero slide" style="height:406px;">
+                                <a href="events.html" aria-label="View Events">
+                                    <img src="assets/images/event4.webp" alt="hero slide">
+                                </a>
                             </div>
                         </div><!-- /.swiper-slide -->
                         <div class="swiper-slide">
                             <div class="hero-two__carousel__image">
-                                <img src="assets/images/event5.jpg" alt="hero slide" style="height:406px;">
+                                <a href="events.html" aria-label="View Events">
+                                    <img src="assets/images/event5.jpg" alt="hero slide">
+                                </a>
                             </div>
                         </div><!-- /.swiper-slide -->
                         <div class="swiper-slide">
                             <div class="hero-two__carousel__image">
-                                <img src="assets/images/event6.webp" alt="hero slide" style="height:406px;">
+                                <a href="events.html" aria-label="View Events">
+                                    <img src="assets/images/event6.webp" alt="hero slide">
+                                </a>
                             </div>
                         </div><!-- /.swiper-slide -->
                         <div class="swiper-slide">
                             <div class="hero-two__carousel__image">
-                                <img src="assets/images/event7.webp" alt="hero slide" style="height:406px;">
+                                <a href="events.html" aria-label="View Events">
+                                    <img src="assets/images/event7.webp" alt="hero slide">
+                                </a>
                             </div>
                         </div><!-- /.swiper-slide -->
                         <div class="swiper-slide">
                             <div class="hero-two__carousel__image">
-                                <img src="assets/images/event12.jpg" alt="hero slide" style="height:406px;">
+                                <a href="events.html" aria-label="View Events">
+                                    <img src="assets/images/event12.jpg" alt="hero slide">
+                                </a>
                             </div>
                         </div><!-- /.swiper-slide -->
                         <div class="swiper-slide">
                             <div class="hero-two__carousel__image">
-                                <img src="assets/images/event9.webp" alt="hero slide" style="height:406px;">
+                                <a href="events.html" aria-label="View Events">
+                                    <img src="assets/images/event9.webp" alt="hero slide">
+                                </a>
                             </div>
                         </div><!-- /.swiper-slide -->
                         <div class="swiper-slide">
                             <div class="hero-two__carousel__image">
-                                <img src="assets/images/event11.jpg" alt="hero slide" style="height:406px;">
+                                <a href="events.html" aria-label="View Events">
+                                    <img src="assets/images/event11.jpg" alt="hero slide">
+                                </a>
                             </div>
                         </div><!-- /.swiper-slide -->
                     </div><!-- /.swiper-wrapper -->
@@ -219,51 +450,70 @@
                         <h4 class="client-carousel__title">THE LABORATORY OF EVENTS</h4>
                     </div><!-- /.client-carousel__content -->
                     <div class="client-carousel__carousel aigence-owl__carousel owl-theme owl-carousel" data-owl-options='{
-                "items": 5,
-                "margin": 65,
+                "items": 3,
+                "margin": 40,
                 "smartSpeed": 700,
                 "loop": true,
-                "autoplay": 6000,
+                "autoplay": 4000,
                 "nav": false,
                 "dots": false,
                 "navText": ["<i class=\"icon-left-arrow\"></i>","<i class=\"icon-right-arrow\"></i>"],
                 "responsive":{
                     "0":{
+                        "items": 1,
+                        "margin": 20
+                    },
+                    "576":{
+                        "items": 2,
+                        "margin": 30
+                    },
+                    "768":{
                         "items": 2,
                         "margin": 40
                     },
-                    "500":{
+                    "992":{
                         "items": 3,
                         "margin": 40
                     },
-                    "768":{
-                        "items": 3,
-                        "margin": 80
-                    },
-                    "992":{
-                        "items": 4,
-                        "margin": 60
-                    },
                     "1200":{
-                        "items": 5,
-                        "margin": 109
+                        "items": 3,
+                        "margin": 50
+                    },
+                    "1400":{
+                        "items": 4,
+                        "margin": 40
                     }
                 }
                 }'>
                         <div class="client-carousel__item d-flex justify-content-center align-items-center">
-                            <h4 style="font-weight: bold; margin: 0; color: white;">WEDDINGS</h4>
+                            <h4 style="font-weight: 700; margin: 0; color: white; white-space: nowrap; font-size: clamp(14px, 1.2vw, 17px); letter-spacing: 0.5px; text-transform: uppercase;">Corporate Event Management</h4>
                         </div><!-- /.owl-slide-item-->
                         <div class="client-carousel__item d-flex justify-content-center align-items-center">
-                            <h4 style="font-weight: bold; margin: 0; color: white;">CORPORATE EVENTS</h4>
+                            <h4 style="font-weight: 700; margin: 0; color: white; white-space: nowrap; font-size: clamp(14px, 1.2vw, 17px); letter-spacing: 0.5px; text-transform: uppercase;">Design and Fabrication</h4>
                         </div><!-- /.owl-slide-item-->
                         <div class="client-carousel__item d-flex justify-content-center align-items-center">
-                            <h4 style="font-weight: bold; margin: 0; color: white;">CONFERENCES</h4>
+                            <h4 style="font-weight: 700; margin: 0; color: white; white-space: nowrap; font-size: clamp(14px, 1.2vw, 17px); letter-spacing: 0.5px; text-transform: uppercase;">Av and Event Technology</h4>
                         </div><!-- /.owl-slide-item-->
                         <div class="client-carousel__item d-flex justify-content-center align-items-center">
-                            <h4 style="font-weight: bold; margin: 0; color: white;">EXHIBITIONS</h4>
+                            <h4 style="font-weight: 700; margin: 0; color: white; white-space: nowrap; font-size: clamp(14px, 1.2vw, 17px); letter-spacing: 0.5px; text-transform: uppercase;">Entertainment and Event Solutions</h4>
                         </div><!-- /.owl-slide-item-->
                         <div class="client-carousel__item d-flex justify-content-center align-items-center">
-                            <h4 style="font-weight: bold; margin: 0; color: white;">PRIVATE EVENTS</h4>
+                            <h4 style="font-weight: 700; margin: 0; color: white; white-space: nowrap; font-size: clamp(14px, 1.2vw, 17px); letter-spacing: 0.5px; text-transform: uppercase;">Travel and Tourism</h4>
+                        </div><!-- /.owl-slide-item-->
+                        <div class="client-carousel__item d-flex justify-content-center align-items-center">
+                            <h4 style="font-weight: 700; margin: 0; color: white; white-space: nowrap; font-size: clamp(14px, 1.2vw, 17px); letter-spacing: 0.5px; text-transform: uppercase;">Corporate Event Management</h4>
+                        </div><!-- /.owl-slide-item-->
+                        <div class="client-carousel__item d-flex justify-content-center align-items-center">
+                            <h4 style="font-weight: 700; margin: 0; color: white; white-space: nowrap; font-size: clamp(14px, 1.2vw, 17px); letter-spacing: 0.5px; text-transform: uppercase;">Design and Fabrication</h4>
+                        </div><!-- /.owl-slide-item-->
+                        <div class="client-carousel__item d-flex justify-content-center align-items-center">
+                            <h4 style="font-weight: 700; margin: 0; color: white; white-space: nowrap; font-size: clamp(14px, 1.2vw, 17px); letter-spacing: 0.5px; text-transform: uppercase;">Av and Event Technology</h4>
+                        </div><!-- /.owl-slide-item-->
+                        <div class="client-carousel__item d-flex justify-content-center align-items-center">
+                            <h4 style="font-weight: 700; margin: 0; color: white; white-space: nowrap; font-size: clamp(14px, 1.2vw, 17px); letter-spacing: 0.5px; text-transform: uppercase;">Entertainment and Event Solutions</h4>
+                        </div><!-- /.owl-slide-item-->
+                        <div class="client-carousel__item d-flex justify-content-center align-items-center">
+                            <h4 style="font-weight: 700; margin: 0; color: white; white-space: nowrap; font-size: clamp(14px, 1.2vw, 17px); letter-spacing: 0.5px; text-transform: uppercase;">Travel and Tourism</h4>
                         </div><!-- /.owl-slide-item-->
                     </div><!-- /.client-carousel__carousel -->
                 </div><!-- /.client-carousel -->
@@ -277,7 +527,8 @@
                 <div class="row gutter-y-50">
                     <div class="col-xxl-8 col-xl-7">
                         <div class="about-two__content">
-                            <h2 class="sec-title bw-split-in-left"><span>EVENTLAB – The Laboratory of Events.</span> <img src="assets/images/event11.jpg" alt="about" style="height:59px;">We turn your vision into remarkable events through innovative concepts, thoughtful design, and seamless execution.</h2><!-- /.sec-title -->
+                            <h2 class="sec-title bw-split-in-left"><span>EVENTLAB – The Laboratory of Events.</span> <span style="font-family: cursive; color: #000; font-size:30px;">We turn your vision into remarkable events through innovative concepts, thoughtful design, and seamless execution.</span></h2><!-- /.sec-title -->
+                            <p style="font-size: 20px; color: #000; font-style:italic;">We don't just plan events. We formulate them — so what comes out the other end isn't just an event that happened, but one people are still bringing up years later.</p>
                             <!-- <div class="about-two__item-grid">
                                 <div class="about-two__item wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
                                     <div class="about-two__item__top">
@@ -295,20 +546,6 @@
                                 </div> 
                             </div> -->
                             
-                            <div class="about-two__formula mt-4 p-4" style="background: linear-gradient(90deg, #D033AE 0%, #425CFE 100%); border-radius: 15px; color: white; box-shadow: 0 10px 20px rgba(66, 92, 254, 0.15);">
-                                <h5 class="text-uppercase text-white font-weight-bold mb-3" style="font-size: 13px; letter-spacing: 2px;">✦ The EventLab Formula</h5>
-                                <div class="d-flex flex-wrap align-items-center justify-content-start gap-2" style="font-size: 15px; font-weight: 700; line-height: 1.6;">
-                                    <span class="px-2 py-1 bg-white text-dark rounded" style="font-size: 13px;">IDEA</span>
-                                    <span class="text-white">+</span>
-                                    <span class="px-2 py-1 bg-white text-dark rounded" style="font-size: 13px;">STRATEGY</span>
-                                    <span class="text-white">+</span>
-                                    <span class="px-2 py-1 bg-white text-dark rounded" style="font-size: 13px;">RIGHT PARTNERS</span>
-                                    <span class="text-white">+</span>
-                                    <span class="px-2 py-1 bg-white text-dark rounded" style="font-size: 13px;">FLAWLESS EXECUTION</span>
-                                    <span class="text-white">=</span>
-                                    <span class="px-3 py-1 text-white rounded" style="background: rgba(255, 255, 255, 0.2); font-size: 13px;">AN EVENT PEOPLE REMEMBER</span>
-                                </div>
-                            </div>
                         </div><!-- /.about-two__content -->
                     </div><!-- /.col-xxl-8 -->
                     <div class="col-xxl-4 col-xl-5 wow fadeInUp" data-wow-duration="1500ms">
@@ -323,369 +560,593 @@
             </div><!-- /.container -->
         </section><!-- /.about-two -->
 
-        <section class="services-two section-space-2" style="padding-bottom: 40px;">
+        <section class="formula-section" style="padding: 20px 0 60px;">
             <div class="container">
-                <h2 class="sec-title sec-title--center">
-                    <span style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #425CFE; display: block; margin-bottom: 5px;">What we run in the lab</span>
-                    Our Services
-                </h2><!-- /.sec-title -->
-                <div class="row gutter-y-30">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Wedding & Destination Events</h3>
-                                <p class="service-card-two__text">From elegant weddings to unforgettable destination celebrations, we manage every detail to create a seamless and magical experience.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event13.jpg" alt="Wedding & Destination Events">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-ring"></i></span>
+                <div class="p-4 p-md-5 text-center wow fadeInUp" data-wow-duration="1500ms" style="background: linear-gradient(90deg, #D033AE 0%, #425CFE 100%); border-radius: 25px; box-shadow: 0 15px 35px rgba(66, 92, 254, 0.15);">
+                    <h5 class="text-uppercase text-white font-weight-bold mb-4" style="font-size: 16px; letter-spacing: 3px;">✦ The EventLab Formula</h5>
+                    <div class="d-flex flex-wrap align-items-center justify-content-center gap-2 gap-md-3" style="font-weight: 800;">
+                        <span class="px-3 px-md-4 py-2 bg-white text-dark rounded shadow-sm" style="font-size: 15px; letter-spacing: 1px;">IDEA</span>
+                        <span class="text-white" style="font-size: 22px; font-weight: 900;">+</span>
+                        <span class="px-3 px-md-4 py-2 bg-white text-dark rounded shadow-sm" style="font-size: 15px; letter-spacing: 1px;">STRATEGY</span>
+                        <span class="text-white" style="font-size: 22px; font-weight: 900;">+</span>
+                        <span class="px-3 px-md-4 py-2 bg-white text-dark rounded shadow-sm" style="font-size: 15px; letter-spacing: 1px;">RIGHT PARTNERS</span>
+                        <span class="text-white" style="font-size: 22px; font-weight: 900;">+</span>
+                        <span class="px-3 px-md-4 py-2 bg-white text-dark rounded shadow-sm" style="font-size: 15px; letter-spacing: 1px;">FLAWLESS EXECUTION</span>
+                        <span class="text-white" style="font-size: 26px; font-weight: 900;">=</span>
+                        <span class="px-3 px-md-4 py-2 text-white rounded shadow-sm" style="background: rgba(255, 255, 255, 0.25); border: 1px solid rgba(255, 255, 255, 0.4); font-size: 15px; letter-spacing: 1px;">AN EVENT PEOPLE REMEMBER</span>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.formula-section -->
+
+        <section class="services-two section-space-2" style="padding-bottom: 60px;">
+            <div class="container">
+                <div class="text-center mb-4 wow fadeInUp" data-wow-duration="1500ms">
+                    <span style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #425CFE; display: inline-block; background: rgba(66, 92, 254, 0.08); padding: 6px 18px; border-radius: 30px; border: 1px solid rgba(66, 92, 254, 0.2); margin-bottom: 12px;">✦ What We Run In The Lab</span>
+                    <h2 class="sec-title sec-title--center" style="font-size: 38px; font-weight: 900; margin-bottom: 10px;">
+                        Our Services
+                    </h2>
+                </div><!-- /.text-center -->
+
+                <!-- Nav Tabs -->
+                <ul class="nav nav-pills services-tabs-nav" id="servicesTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link services-tab-btn active" id="tab-corporate-tab" data-bs-toggle="pill" data-bs-target="#tab-corporate" type="button" role="tab" aria-controls="tab-corporate" aria-selected="true">
+                            <span class="tab-num">01</span> Corporate & MICE
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link services-tab-btn" id="tab-ceremonies-tab" data-bs-toggle="pill" data-bs-target="#tab-ceremonies" type="button" role="tab" aria-controls="tab-ceremonies" aria-selected="false">
+                            <span class="tab-num">02</span> Ceremonies & Celebrations
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link services-tab-btn" id="tab-culture-tab" data-bs-toggle="pill" data-bs-target="#tab-culture" type="button" role="tab" aria-controls="tab-culture" aria-selected="false">
+                            <span class="tab-num">03</span> Culture & Entertainment
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link services-tab-btn" id="tab-support-tab" data-bs-toggle="pill" data-bs-target="#tab-support" type="button" role="tab" aria-controls="tab-support" aria-selected="false">
+                            <span class="tab-num">04</span> Full-Service Support
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content Panes -->
+                <div class="tab-content" id="servicesTabContent">
+                    <!-- Tab 01: Corporate & MICE -->
+                    <div class="tab-pane fade show active" id="tab-corporate" role="tabpanel" aria-labelledby="tab-corporate-tab">
+                        <div class="d-flex align-items-center justify-content-between mb-4 pb-2 border-bottom">
+                            <h3 style="font-size: 22px; font-weight: 800; color: #0D1A42; margin: 0;">
+                                <span style="color: #425CFE; font-family: monospace; margin-right: 6px;">01.</span> Corporate & MICE
+                            </h3>
+                            <span class="badge" style="background: rgba(66, 92, 254, 0.1); color: #425CFE; font-size: 13px; font-weight: 700; border-radius: 20px; padding: 6px 14px;">5 Services</span>
+                        </div>
+                        <div class="row gutter-y-30">
+                            <!-- Corporate Events -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Corporate Events</h3>
+                                        <p class="service-card-two__text">We organize professional corporate experiences including meetings, summits, networking gatherings, and annual celebrations.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event19.webp" alt="Corporate Events">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-building"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Conferences & Seminars -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Conferences & Seminars</h3>
+                                        <p class="service-card-two__text">We organize conferences and seminars with complete planning, speaker coordination, registration, and technical support.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event26.jpg" alt="Conferences & Seminars">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-comments"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Exhibitions & Festivals -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Exhibitions & Festivals</h3>
+                                        <p class="service-card-two__text">We manage exhibitions from concept and booth planning to visitor experience, logistics, and on-site management.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event25.jpeg" alt="Exhibitions & Festivals">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-images"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product Launches -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Product Launches</h3>
+                                        <p class="service-card-two__text">We create high-impact product launches that generate excitement through creative concepts, immersive experiences, and branding.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event29.jpg" alt="Product Launches">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-rocket"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Team Building & MICE Support -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Team Building & MICE Support</h3>
+                                        <p class="service-card-two__text">We design engaging team-building experiences and end-to-end MICE support that encourage collaboration and team spirit.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/events30.webp" alt="Team Building & MICE Support">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-handshake"></i></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Anniversary Events</h3>
-                                <p class="service-card-two__text">Celebrate meaningful milestones with beautifully planned anniversary events, customized with thoughtful themes, décor, and entertainment.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event14.jpg" alt="Anniversary Events">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-heart"></i></span>
+
+                    <!-- Tab 02: Ceremonies & Celebrations -->
+                    <div class="tab-pane fade" id="tab-ceremonies" role="tabpanel" aria-labelledby="tab-ceremonies-tab">
+                        <div class="d-flex align-items-center justify-content-between mb-4 pb-2 border-bottom">
+                            <h3 style="font-size: 22px; font-weight: 800; color: #0D1A42; margin: 0;">
+                                <span style="color: #D033AE; font-family: monospace; margin-right: 6px;">02.</span> Ceremonies & Celebrations
+                            </h3>
+                            <span class="badge" style="background: rgba(208, 51, 174, 0.1); color: #D033AE; font-size: 13px; font-weight: 700; border-radius: 20px; padding: 6px 14px;">4 Services</span>
+                        </div>
+                        <div class="row gutter-y-30">
+                            <!-- Opening & Award Ceremonies -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Opening & Award Ceremonies</h3>
+                                        <p class="service-card-two__text">We create prestigious award experiences and opening ceremonies with elegant stage design, guest management, and production.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event24.webp" alt="Opening & Award Ceremonies">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-medal"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Gala Dinners -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Gala Dinners</h3>
+                                        <p class="service-card-two__text">Create sophisticated evenings with elegant décor, fine dining, entertainment, and seamless guest management.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event16.jpg" alt="Gala Dinners">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-glass-cheers"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Anniversary Events -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Anniversary Events</h3>
+                                        <p class="service-card-two__text">Celebrate meaningful milestones with beautifully planned anniversary events, customized with thoughtful themes, décor, and entertainment.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event14.jpg" alt="Anniversary Events">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-heart"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Wedding Destination Events -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Wedding Destination Events</h3>
+                                        <p class="service-card-two__text">From elegant weddings to unforgettable destination celebrations, we manage every detail to create a magical experience.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event13.jpg" alt="Wedding Destination Events">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-ring"></i></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Sports Events</h3>
-                                <p class="service-card-two__text">We plan and execute sporting events with professional coordination, from venue setup to hospitality and audience engagement.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event15.webp" alt="Sports Events">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-trophy"></i></span>
+
+                    <!-- Tab 03: Culture & Entertainment -->
+                    <div class="tab-pane fade" id="tab-culture" role="tabpanel" aria-labelledby="tab-culture-tab">
+                        <div class="d-flex align-items-center justify-content-between mb-4 pb-2 border-bottom">
+                            <h3 style="font-size: 22px; font-weight: 800; color: #0D1A42; margin: 0;">
+                                <span style="color: #425CFE; font-family: monospace; margin-right: 6px;">03.</span> Culture & Entertainment
+                            </h3>
+                            <span class="badge" style="background: rgba(66, 92, 254, 0.1); color: #425CFE; font-size: 13px; font-weight: 700; border-radius: 20px; padding: 6px 14px;">5 Services</span>
+                        </div>
+                        <div class="row gutter-y-30">
+                            <!-- Entertainment & Cultural Events -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Entertainment & Cultural Events</h3>
+                                        <p class="service-card-two__text">We bring culture and entertainment together through engaging performances, themed experiences, and live entertainment.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event20.webp" alt="Entertainment & Cultural Events">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-theater-masks"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fashion Shows -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Fashion Shows</h3>
+                                        <p class="service-card-two__text">From runway design and backstage coordination to lighting and production, we create fashion shows that capture attention.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event10.webp" alt="Fashion Shows">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-tshirt"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Festivals & Concerts -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Festivals & Concerts</h3>
+                                        <p class="service-card-two__text">From community celebrations to large-scale music concerts and festivals, we manage programming, sound, and operations.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event28.webp" alt="Festivals & Concerts">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-music"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Sports Events -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Sports Events</h3>
+                                        <p class="service-card-two__text">We plan and execute sporting events with professional coordination, from venue setup to hospitality and audience engagement.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event15.webp" alt="Sports Events">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-trophy"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Evening Activities -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Evening Activities</h3>
+                                        <p class="service-card-two__text">We design engaging evening experiences featuring entertainment, themed activities, performances, dining, and interactive programs.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event27.jpg" alt="Evening Activities">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-moon"></i></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Gala Dinner Events</h3>
-                                <p class="service-card-two__text">Create sophisticated evenings with elegant décor, fine dining, entertainment, and seamless guest management designed to deliver a memorable experience.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event16.jpg" alt="Gala Dinner Events">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-glass-cheers"></i></span>
+
+                    <!-- Tab 04: Full-Service Support -->
+                    <div class="tab-pane fade" id="tab-support" role="tabpanel" aria-labelledby="tab-support-tab">
+                        <div class="d-flex align-items-center justify-content-between mb-4 pb-2 border-bottom">
+                            <h3 style="font-size: 22px; font-weight: 800; color: #0D1A42; margin: 0;">
+                                <span style="color: #D033AE; font-family: monospace; margin-right: 6px;">04.</span> Full-Service Support
+                            </h3>
+                            <span class="badge" style="background: rgba(208, 51, 174, 0.1); color: #D033AE; font-size: 13px; font-weight: 700; border-radius: 20px; padding: 6px 14px;">8 Services</span>
+                        </div>
+                        <div class="row gutter-y-30">
+                            <!-- Event Strategy & Consultation -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Event Strategy & Consultation</h3>
+                                        <p class="service-card-two__text">Our event specialists help turn your ideas into practical event strategies with guidance on concepts, budgets, venues, and execution.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event30.jpg" alt="Event Strategy & Consultation">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-lightbulb"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Sponsorship & Partnerships -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Sponsorship & Partnerships</h3>
+                                        <p class="service-card-two__text">We help connect your events with the right sponsors and strategic partners, maximizing value and brand collaboration.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event18.jpg" alt="Sponsorship & Partnerships">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-handshake"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Artist & Vendor Management -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Artist & Vendor Management</h3>
+                                        <p class="service-card-two__text">From artist selection and negotiations to travel, scheduling, and on-ground coordination, we manage partners professionally.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event21.jpg" alt="Artist & Vendor Management">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-users"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Production & Logistics -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Production & Logistics</h3>
+                                        <p class="service-card-two__text">We handle state-of-the-art stage setup, lighting, sound engineering, rigging, and seamless ground logistics.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event5.jpg" alt="Production & Logistics">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-cogs"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Road Shows & Inaugurations -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Road Shows & Inaugurations</h3>
+                                        <p class="service-card-two__text">We create impactful roadshows and inauguration ceremonies that connect brands with audiences while ensuring smooth coordination.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event18.jpg" alt="Road Shows & Inaugurations">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-road"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Corporate & Institutional Catering -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Corporate & Institutional Catering</h3>
+                                        <p class="service-card-two__text">We provide professional catering solutions for institutions, workplaces, and large gatherings, ensuring quality food and hospitality.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event17.jpg" alt="Corporate & Institutional Catering">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-utensils"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Content Creation -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Content Creation</h3>
+                                        <p class="service-card-two__text">High-definition event coverage, photography, videography, teaser trailers, and live social media content to capture every moment.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event4.webp" alt="Content Creation">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-camera"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Brand Management -->
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                                <div class="service-card-two">
+                                    <div class="service-card-two__bg"></div>
+                                    <div class="service-card-two__content">
+                                        <h3 class="service-card-two__title">Brand Management</h3>
+                                        <p class="service-card-two__text">Comprehensive brand identity integration, experiential branding, visual collateral, and visitor journey touchpoints.</p>
+                                        <div class="service-card-two__image">
+                                            <img src="assets/images/event2.jpg" alt="Brand Management">
+                                            <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
+                                                <span class="service-card-two__btn__icon"><i class="fas fa-bullhorn"></i></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Contract & Catering</h3>
-                                <p class="service-card-two__text">We provide professional catering solutions for institutions, workplaces, and large gatherings, ensuring quality food and consistent hospitality.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event17.jpg" alt="Contract & Catering">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-utensils"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Fashion Shows</h3>
-                                <p class="service-card-two__text">From runway design and backstage coordination to lighting, production, and guest experience, we create fashion shows that capture attention.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event10.webp" alt="Fashion Shows">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-tshirt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Roadshows & Inaugurations</h3>
-                                <p class="service-card-two__text">We create impactful roadshows and inauguration ceremonies that connect brands with audiences while ensuring smooth coordination.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event18.jpg" alt="Roadshows & Inaugurations">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-road"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Corporate Events</h3>
-                                <p class="service-card-two__text">We organize professional corporate experiences including meetings, celebrations, networking events, and annual gatherings.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event19.webp" alt="Corporate Events">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-building"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Cultural Events</h3>
-                                <p class="service-card-two__text">We bring culture and entertainment together through engaging performances, themed experiences, and live entertainment.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event20.webp" alt="Cultural Events">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-theater-masks"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Artist Management</h3>
-                                <p class="service-card-two__text">From artist selection and negotiations to travel, scheduling, and on-ground coordination, we manage artists professionally.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event21.jpg" alt="Artist Management">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-music"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Conference Support</h3>
-                                <p class="service-card-two__text">We provide complete conference support including venue coordination, stage setup, audio-visual requirements, and event logistics.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event22.jpg" alt="Conference Support">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-microphone"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Opening Ceremonies</h3>
-                                <p class="service-card-two__text">We design impactful opening ceremonies with creative concepts, stage production, and smooth execution to make a first impression.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event23.jpg" alt="Opening Ceremonies">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-bullhorn"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Award Ceremonies</h3>
-                                <p class="service-card-two__text">We create prestigious award experiences with elegant stage design, guest management, entertainment, and professional production.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event24.webp" alt="Award Ceremonies">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-medal"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Exhibitions</h3>
-                                <p class="service-card-two__text">We manage exhibitions from concept and booth planning to visitor experience, logistics, and on-site management.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event25.jpeg" alt="Exhibitions">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-images"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Conferences & Seminars</h3>
-                                <p class="service-card-two__text">We organize conferences and seminars with complete planning, speaker coordination, registration, and technical support.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event26.jpg" alt="Conferences & Seminars">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-comments"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Evening Activities</h3>
-                                <p class="service-card-two__text">We design engaging evening experiences featuring entertainment, themed activities, performances, dining, and interactive programs.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event27.jpg" alt="Evening Activities">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-moon"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Festivals</h3>
-                                <p class="service-card-two__text">From community celebrations to large-scale festivals, we manage programming, crowd coordination, logistics, and overall operations.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event28.webp" alt="Festivals">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-glass-cheers"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Product Launches</h3>
-                                <p class="service-card-two__text">We create high-impact product launches that generate excitement through creative concepts, immersive experiences, and branding.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event29.jpg" alt="Product Launches">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-rocket"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Event Consultation</h3>
-                                <p class="service-card-two__text">Our event specialists help turn your ideas into practical event strategies with guidance on concepts, budgets, venues, and execution.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/event30.jpg" alt="Event Consultation">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-lightbulb"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
-                        <div class="service-card-two">
-                            <div class="service-card-two__bg"></div>
-                            <div class="service-card-two__content">
-                                <h3 class="service-card-two__title">Team Building</h3>
-                                <p class="service-card-two__text">We design engaging team-building experiences that encourage communication, collaboration, leadership, and team spirit.</p>
-                                <div class="service-card-two__image">
-                                    <img src="assets/images/events30.webp" alt="Team Building">
-                                    <div class="service-card-two__btn" style="pointer-events: none; cursor: default;">
-                                        <span class="service-card-two__btn__icon"><i class="fas fa-handshake"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- /.row -->
+                </div><!-- /.tab-content -->
             </div><!-- /.container -->
         </section><!-- /.services-two -->
 
-        
-        <section class="funfact-two section-space-2">
-            <div class="container">
-                <div class="row gutter-y-30">
-                    <div class="col-lg-4 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
-                        <div class="funfact-two__item">
-                            <div class="funfact-two__item__top">
-                                <div class="funfact-two__item__left">
-                                    <h2 class="funfact-two__item__count count-box">
-                                        <span class="count-text" data-stop="300" data-speed="1500">0</span>
-                                        <span>+</span>
-                                    </h2><!-- /.funfact-two__item__count -->
-                                    <h3 class="funfact-two__item__title">Successful Projects</h3>
-                                </div><!-- /.funfact-two__item__left -->
-                                <img src="assets/images/shapes/funfact-shape-2-1.png" alt="shape" class="funfact-two__item__shape">
-                            </div><!-- /.funfact-two__item__top -->
-                            <p class="funfact-two__item__text">Ideas transformed into unforgettable experiences.</p>
-                        </div><!-- /.funfact-two__item -->
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-lg-4 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
-                        <div class="funfact-two__item">
-                            <div class="funfact-two__item__top">
-                                <div class="funfact-two__item__left">
-                                    <h2 class="funfact-two__item__count count-box">
-                                        <span class="count-text" data-stop="50" data-speed="1500">0</span>
-                                        <span>+</span>
-                                    </h2><!-- /.funfact-two__item__count -->
-                                    <h3 class="funfact-two__item__title">Happy Clients</h3>
-                                </div><!-- /.funfact-two__item__left -->
-                                <img src="assets/images/shapes/funfact-shape-2-2.png" alt="shape" class="funfact-two__item__shape">
-                            </div><!-- /.funfact-two__item__top -->
-                            <p class="funfact-two__item__text">Creating experiences that leave a lasting impression.</p>
-                        </div><!-- /.funfact-two__item -->
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-lg-4 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
-                        <div class="funfact-two__item">
-                            <div class="funfact-two__item__top">
-                                <div class="funfact-two__item__left">
-                                    <h2 class="funfact-two__item__count count-box">
-                                        <span class="count-text" data-stop="30" data-speed="1500">0</span>
-                                        <span>+</span>
-                                    </h2><!-- /.funfact-two__item__count -->
-                                    <h3 class="funfact-two__item__title">Smart team members</h3>
-                                </div><!-- /.funfact-two__item__left -->
-                                <img src="assets/images/shapes/funfact-shape-2-3.png" alt="shape" class="funfact-two__item__shape">
-                            </div><!-- /.funfact-two__item__top -->
-                                <p class="funfact-two__item__text">Passion, creativity, and expertise behind every event.</p>
-                        </div><!-- /.funfact-two__item -->
-                    </div><!-- /.col-lg-4 -->
-                </div><!-- /.row gutter-y-30 -->
-            </div><!-- /.container -->
-        </section><!-- /.funfact-two -->
+        <!-- Your Event, Our Expertise Section (Side-by-Side Layout) -->
+        <section class="our-expertise-section section-space" style="background-color: #FFFFFF; padding-top: 95px; padding-bottom: 95px;">
+            <div class="container position-relative" style="z-index: 2;">
+                <div class="row align-items-center gutter-y-40">
+                    <!-- Left Column: Title & Tagline Only -->
+                    <div class="col-lg-5 col-xl-5">
+                        <div class="expertise-left-content wow fadeInLeft" data-wow-duration="1500ms">
+                            <h2 class="sec-title" style="font-size: 42px; font-weight: 900; color: #000000; letter-spacing: -1px; line-height: 1.25; margin-bottom: 18px;">
+                                Your Event, Our Expertise
+                            </h2>
+                            <p class="expertise-lead-desc">
+                                Creative planning, seamless execution, and exceptional experiences under one roof.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: 10 Expertise Points (Side-by-Side 2 Subcolumns, Titles Only) -->
+                    <div class="col-lg-7 col-xl-7">
+                        <div class="row g-3">
+                            <!-- Subcolumn 1: Points 01 to 05 -->
+                            <div class="col-sm-6 col-12 d-flex flex-column gap-3">
+                                <!-- 01: Venue Scouting & Selection -->
+                                <div class="expertise-h-card expertise-h-card--blue wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="0ms">
+                                    <div class="expertise-h-card__icon">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                    </div>
+                                    <div class="expertise-h-card__content">
+                                        <h4 class="expertise-h-card__title">Venue Scouting & Selection</h4>
+                                    </div>
+                                </div>
+
+                                <!-- 02: Event Concept & Design -->
+                                <div class="expertise-h-card expertise-h-card--magenta wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="50ms">
+                                    <div class="expertise-h-card__icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <div class="expertise-h-card__content">
+                                        <h4 class="expertise-h-card__title">Event Concept & Design</h4>
+                                    </div>
+                                </div>
+
+                                <!-- 03: Invite Design -->
+                                <div class="expertise-h-card expertise-h-card--blue wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="100ms">
+                                    <div class="expertise-h-card__icon">
+                                        <i class="fas fa-envelope-open-text"></i>
+                                    </div>
+                                    <div class="expertise-h-card__content">
+                                        <h4 class="expertise-h-card__title">Invite Design</h4>
+                                    </div>
+                                </div>
+
+                                <!-- 04: Entertainment Design -->
+                                <div class="expertise-h-card expertise-h-card--magenta wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="150ms">
+                                    <div class="expertise-h-card__icon">
+                                        <i class="fas fa-theater-masks"></i>
+                                    </div>
+                                    <div class="expertise-h-card__content">
+                                        <h4 class="expertise-h-card__title">Entertainment Design</h4>
+                                    </div>
+                                </div>
+
+                                <!-- 05: Decor & Floral Setups -->
+                                <div class="expertise-h-card expertise-h-card--blue wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="200ms">
+                                    <div class="expertise-h-card__icon">
+                                        <i class="fas fa-spa"></i>
+                                    </div>
+                                    <div class="expertise-h-card__content">
+                                        <h4 class="expertise-h-card__title">Decor & Floral Setups</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Subcolumn 2: Points 06 to 10 -->
+                            <div class="col-sm-6 col-12 d-flex flex-column gap-3">
+                                <!-- 06: Personalized Catering Services -->
+                                <div class="expertise-h-card expertise-h-card--magenta wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="250ms">
+                                    <div class="expertise-h-card__icon">
+                                        <i class="fas fa-utensils"></i>
+                                    </div>
+                                    <div class="expertise-h-card__content">
+                                        <h4 class="expertise-h-card__title">Personalized Catering Services</h4>
+                                    </div>
+                                </div>
+
+                                <!-- 07: Staging, Sound & Lighting Equipment -->
+                                <div class="expertise-h-card expertise-h-card--blue wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+                                    <div class="expertise-h-card__icon">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div class="expertise-h-card__content">
+                                        <h4 class="expertise-h-card__title">Staging, Sound & Lighting Equipment</h4>
+                                    </div>
+                                </div>
+
+                                <!-- 08: Photography & Videography -->
+                                <div class="expertise-h-card expertise-h-card--magenta wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="350ms">
+                                    <div class="expertise-h-card__icon">
+                                        <i class="fas fa-camera-retro"></i>
+                                    </div>
+                                    <div class="expertise-h-card__content">
+                                        <h4 class="expertise-h-card__title">Photography & Videography</h4>
+                                    </div>
+                                </div>
+
+                                <!-- 09: Travel, Logistics & Visas -->
+                                <div class="expertise-h-card expertise-h-card--blue wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="400ms">
+                                    <div class="expertise-h-card__icon">
+                                        <i class="fas fa-plane-departure"></i>
+                                    </div>
+                                    <div class="expertise-h-card__content">
+                                        <h4 class="expertise-h-card__title">Travel, Logistics & Visas</h4>
+                                    </div>
+                                </div>
+
+                                <!-- 10: Event Management & Show Running -->
+                                <div class="expertise-h-card expertise-h-card--magenta wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="450ms">
+                                    <div class="expertise-h-card__icon">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                    <div class="expertise-h-card__content">
+                                        <h4 class="expertise-h-card__title">Event Management & Show Running</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="projects-one section-space-2">
             <div class="projects-one__bg">
                 <div class="projects-one__bg__1" style="background-image: url(assets/images/shapes/projects-bg-shape-1-1.png);"></div>
@@ -710,38 +1171,8 @@
                             </div><!-- /.project-card__content -->
                         </div><!-- /.project-card -->
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="project-card">
-                            <div class="project-card__image">
-                                <img src="assets/images/events6.jpg" alt="The Confidence Project" style="width: 100%; height: 350px; object-fit: cover;">
-                            </div><!-- /.project-card__image -->
-                            <div class="project-card__content">
-                                <div class="project-card__inner">
-                                    <a href="events.html" class="project-card__btn">
-                                        <span class="project-card__btn__icon"><i class="icon-right-arrow"></i></span>
-                                    </a><!-- /.project-card__btn -->
-                                    <h3 class="project-card__title"><a href="events.html">The Confidence Project</a></h3>
-                                    <p class="project-card__tagline">Aug 8 &bull; Meledath Auditorium, Adoor</p>
-                                </div><!-- /.project-card__inner -->
-                            </div><!-- /.project-card__content -->
-                        </div><!-- /.project-card -->
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="project-card">
-                            <div class="project-card__image">
-                                <img src="assets/images/events7.jpg" alt="The Confidence Project" style="width: 100%; height: 350px; object-fit: cover;">
-                            </div><!-- /.project-card__image -->
-                            <div class="project-card__content">
-                                <div class="project-card__inner">
-                                    <a href="events.html" class="project-card__btn">
-                                        <span class="project-card__btn__icon"><i class="icon-right-arrow"></i></span>
-                                    </a><!-- /.project-card__btn -->
-                                    <h3 class="project-card__title"><a href="events.html">The Confidence Project</a></h3>
-                                    <p class="project-card__tagline">Aug 8 &bull; Meledath Auditorium, Adoor</p>
-                                </div><!-- /.project-card__inner -->
-                            </div><!-- /.project-card__content -->
-                        </div><!-- /.project-card -->
-                    </div>
+                    
+                    
                 </div>
             </div>
         </section><!-- /.projects-one -->
@@ -749,15 +1180,14 @@
         <section class="slide-text ">
             <div class="slide-text__wrapper">
                 <h1 class="slide-text__scroll">
-                    <span>*SUCCESSFUL EVENTS</span>
-                    <span>*THOUSANDS OF MOMENTS • HUNDREDS OF EVENTS • ONE EVENTLAB</span>
-                    <span>*UNFORGETTABLE EXPERIENCES</span>
-                    <span>*PASSIONATE TEAM</span>
-                    <!-- Duplicate for infinite seamless scroll -->
-                    <span>*SUCCESSFUL EVENTS</span>
-                    <span>*THOUSANDS OF MOMENTS • HUNDREDS OF EVENTS • ONE EVENTLAB</span>
-                    <span>*UNFORGETTABLE EXPERIENCES</span>
-                    <span>*PASSIONATE TEAM</span>
+                    <span>*PROVEN IN THE LAB</span>
+                    <span>*THOUSANDS OF MOMENTS • HUNDREDS OF EVENTS • ONE EVENT LAB</span>
+                    <span>*EXPERIENCES PEOPLE DON'T FORGET</span>
+                    <span>*A TEAM THAT LIVES FOR THIS</span>
+                    <span>*PROVEN IN THE LAB</span>
+                    <span>*THOUSANDS OF MOMENTS • HUNDREDS OF EVENTS • ONE EVENT LAB</span>
+                    <span>*EXPERIENCES PEOPLE DON'T FORGET</span>
+                    <span>*A TEAM THAT LIVES FOR THIS</span>
                 </h1><!-- /.slide-text__scroll -->
             </div><!-- /.slide-text__wrapper -->
         </section><!-- /.slide-text -->
@@ -838,7 +1268,7 @@
             <div class="container">
                 <div class="row gutter-y-40 align-items-center">
                     <div class="col-xl-6 wow fadeInUp" data-wow-duration="1500ms">
-                        <h3 class="ai-power__title">At EVENTLAB, we transform ideas into extraordinary experiences. Our team combines creative thinking, meticulous planning, and flawless execution to design events that bring people together and create lasting memories.
+                        <h3 class="ai-power__title" style="font-family:cursive; color: aliceblue; text-shadow: 0px 0px blue;">At EVENTLAB, we transform ideas into extraordinary experiences. Our team combines creative thinking, meticulous planning, and flawless execution to design events that bring people together and create lasting memories.
 
 From corporate gatherings and conferences to weddings, celebrations, and large-scale experiences, we handle every detail with passion and precision.</h3><!-- /.ai-power__title -->
                     </div><!-- /.col-xl-6 -->
@@ -1103,7 +1533,7 @@ From corporate gatherings and conferences to weddings, celebrations, and large-s
                         <div class="col-xl-3 col-lg-4 col-md-5 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
                             <div class="footer-widget footer-widget--about">
                                 <a href="index.html" class="footer-widget__logo logo-retina">
-                                    <img src="assets/images/Eventslab logo.png" alt="Eventslab Logo" width="250">
+                                    <img src="assets/images/logo event.png" alt="Eventslab Logo" width="320">
                                 </a>
                             </div><!-- /.footer-widget -->
                         </div><!-- /.col-xl-3 -->
@@ -1125,7 +1555,7 @@ From corporate gatherings and conferences to weddings, celebrations, and large-s
                                 <ul class="list-unstyled footer-widget__info">
                                     <li>
                                         <span class="footer-widget__info__icon"><i class="icon-email"></i></span>
-                                        <span><a href="mailto:hello@eventlabs.in">hello@eventlabs.in</a></span>
+                                        <span><a href="mailto:Info@eventlab.events">Info@eventlab.events</a></span>
                                     </li>
                                     <li>
                                         <span class="footer-widget__info__icon"><i class="icon-phone-2"></i></span>
@@ -1152,6 +1582,7 @@ From corporate gatherings and conferences to weddings, celebrations, and large-s
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About Us</a></li>
                                     <li><a href="events.html">Events</a></li>
+                                    <li><a href="upcoming.html">Upcoming Events</a></li>
                                     <li><a href="gallery.html">Gallery</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul><!-- /.list-unstyled footer-widget__links -->
@@ -1178,7 +1609,7 @@ From corporate gatherings and conferences to weddings, celebrations, and large-s
         <div class="mobile-nav__content">
             <span class="mobile-nav__close mobile-nav__toggler"><i class="icon-close"></i></span>
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/Eventslab logo.png" width="250" alt="Eventslab Logo" /></a>
+                <a href="index.html" aria-label="logo image"><img src="assets/images/logo event.png" width="300" alt="Eventslab Logo" /></a>
             </div><!-- /.logo-box -->
             <div class="mobile-nav__container"></div><!-- /.mobile-nav__container -->
             <div class="my-4 text-center">
@@ -1189,7 +1620,7 @@ From corporate gatherings and conferences to weddings, celebrations, and large-s
             <ul class="mobile-nav__contact list-unstyled">
                 <li>
                     <span class="mobile-nav__contact__icon"><i class="fa fa-envelope"></i></span>
-                    <a href="mailto:hello@eventlabs.in">hello@eventlabs.in</a>
+                    <a href="mailto:Info@eventlab.events">Info@eventlab.events</a>
                 </li>
                 <li>
                     <span class="mobile-nav__contact__icon"><i class="fa fa-phone-alt"></i></span>

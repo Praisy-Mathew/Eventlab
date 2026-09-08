@@ -15,7 +15,7 @@
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/vendors/bootstrap-select/bootstrap-select.min.css" />
@@ -34,6 +34,7 @@
     <style>
         /* Uniform section padding for About page */
         .about-four.section-space,
+        .mission-vision-values.section-space,
         .cta-two.section-space,
         .funfact-two.section-space-2,
         .services-about,
@@ -42,23 +43,226 @@
             padding-top: 80px !important;
             padding-bottom: 80px !important;
         }
-        /* Hover effects for Why Choose Us cards */
-        .why-choose-card-v2:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(66, 92, 254, 0.08) !important;
-            border-color: #425CFE !important;
+        .our-aim-section.section-space {
+            padding-top: 40px !important;
+            padding-bottom: 40px !important;
         }
-        .why-choose-card-v2:hover .icon-wrapper {
-            transform: scale(1.1);
-            background: #425CFE !important;
-            color: #FFFFFF !important;
+        /* Why Choose EventLab - Full Width Exact Paragraph Section */
+        .why-choose-us {
+            position: relative;
+            background: #FFFFFF;
+            overflow: hidden;
         }
-        .why-choose-card-v2:nth-child(even):hover {
-            border-color: #D033AE !important;
+        .why-choose-full-panel {
+            background: #FFFFFF;
+            border: 1px solid #E5EDFC;
+            border-radius: 32px;
+            padding: 60px 64px;
+            box-shadow: 0 16px 45px -12px rgba(15, 23, 58, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .why-choose-card-v2:nth-child(even):hover .icon-wrapper {
-            background: #D033AE !important;
-            color: #FFFFFF !important;
+        .why-choose-full-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #425CFE 0%, #D033AE 100%);
+        }
+        .why-choose-full-panel:hover {
+            box-shadow: 0 24px 60px -12px rgba(66, 92, 254, 0.12);
+            border-color: rgba(66, 92, 254, 0.3);
+            transform: translateY(-4px);
+        }
+        .why-choose-exact-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 20px;
+            line-height: 1.95;
+            color: #2D3748;
+            font-weight: 450;
+            text-align: center;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+        .why-choose-exact-text .gradient-text {
+            background: linear-gradient(135deg, #425CFE 0%, #D033AE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        @media (max-width: 991px) {
+            .why-choose-full-panel {
+                padding: 40px 32px;
+            }
+            .why-choose-exact-text {
+                font-size: 17px;
+                line-height: 1.85;
+                text-align: left;
+            }
+        }
+        @media (max-width: 767px) {
+            .why-choose-full-panel {
+                padding: 30px 22px;
+                border-radius: 24px;
+            }
+            .why-choose-exact-text {
+                font-size: 15.5px;
+                line-height: 1.75;
+                text-align: left;
+            }
+        }
+        /* Our Aim Section */
+        .our-aim-section {
+            position: relative;
+            background: #FFFFFF;
+            overflow: hidden;
+        }
+        .our-aim-panel {
+            position: relative;
+            background: linear-gradient(135deg, #070B1E 0%, #0D1535 55%, #160B28 100%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 28px;
+            padding: 42px 48px;
+            box-shadow: 0 20px 50px -12px rgba(7, 11, 30, 0.35);
+            overflow: hidden;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .our-aim-panel:hover {
+            box-shadow: 0 25px 60px -12px rgba(66, 92, 254, 0.25);
+            border-color: rgba(66, 92, 254, 0.35);
+            transform: translateY(-3px);
+        }
+        .our-aim-panel::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -80px;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(66, 92, 254, 0.22) 0%, rgba(66, 92, 254, 0) 70%);
+            pointer-events: none;
+        }
+        .our-aim-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(208, 51, 174, 0.2) 0%, rgba(208, 51, 174, 0) 70%);
+            pointer-events: none;
+        }
+        .our-aim__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 5px 18px;
+            border-radius: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .our-aim__badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #425CFE 0%, #D033AE 100%);
+            box-shadow: 0 0 8px #D033AE;
+        }
+        .our-aim__title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1.18;
+            letter-spacing: -0.02em;
+            color: #FFFFFF;
+            margin: 0 0 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .our-aim__gradient-text {
+            background: linear-gradient(135deg, #425CFE 0%, #D033AE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            display: inline-block;
+        }
+        .our-aim__divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin: 0 auto 16px;
+            max-width: 180px;
+            position: relative;
+            z-index: 2;
+        }
+        .our-aim__divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.05));
+        }
+        .our-aim__divider-icon {
+            color: #D033AE;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        .our-aim__text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 16.5px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.88);
+            font-weight: 400;
+            max-width: 760px;
+            margin: 0 auto;
+            letter-spacing: -0.005em;
+            position: relative;
+            z-index: 2;
+        }
+        @media (max-width: 991px) {
+            .our-aim-panel {
+                padding: 34px 28px;
+            }
+            .our-aim__title {
+                font-size: 30px;
+                line-height: 1.22;
+            }
+            .our-aim__text {
+                font-size: 15.5px;
+                line-height: 1.65;
+            }
+        }
+        @media (max-width: 767px) {
+            .our-aim-panel {
+                padding: 28px 18px;
+                border-radius: 20px;
+            }
+            .our-aim__badge {
+                font-size: 11px;
+                padding: 4px 14px;
+                letter-spacing: 1.5px;
+            }
+            .our-aim__title {
+                font-size: 24px;
+                line-height: 1.25;
+            }
+            .our-aim__text {
+                font-size: 14.5px;
+                line-height: 1.6;
+            }
         }
     </style>
 </head>
@@ -69,7 +273,7 @@
     <div class="custom-cursor__cursor-two"></div>
 
     <div class="preloader">
-        <div class="preloader__image" style="background-image: url(assets/images/Eventslab logo.png);"></div>
+        <div class="preloader__image" style="background-image: url('assets/images/logo event.png');"></div>
     </div>
     <!-- /.preloader -->
     <div class="page-wrapper">
@@ -83,7 +287,7 @@
                         </li>
                         <li>
                             <span class="topbar__info__icon"><i class="icon-email"></i></span>
-                            <span><a href="mailto:hello@eventlabs.in">hello@eventlabs.in</a></span>
+                            <span><a href="mailto:Info@eventlab.events">Info@eventlab.events</a></span>
                         </li>
                         <li>
                             <span class="topbar__info__icon"><i class="icon-phone"></i></span>
@@ -104,7 +308,7 @@
                 <div class="main-header__inner">
                     <div class="main-header__logo logo-retina">
                         <a href="index.html">
-                            <img src="assets/images/Eventslab logo.png" alt="Eventslab Logo" width="250">
+                            <img src="assets/images/logo event.png" alt="Eventslab Logo" width="340">
                         </a>
                     </div><!-- /.main-header__logo -->
                     <div class="main-header__right">
@@ -118,6 +322,9 @@
                                 </li>
                                 <li>
                                     <a href="events.html">Events</a>
+                                </li>
+                                <li>
+                                    <a href="upcoming.html">Upcoming Events</a>
                                 </li>
                                 <li>
                                     <a href="gallery.html">Gallery</a>
@@ -188,81 +395,155 @@
             </div><!-- /.container -->
         </section><!-- /.about-four -->
 
+        <section class="mission-vision-values section-space">
+            <div class="container">
+                <!-- Row 1: Our Mission -->
+                <div class="mvv-row-card mvv-row-card--mission wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                    <div class="row align-items-center gutter-y-30">
+                        <div class="col-lg-5">
+                            <div class="mvv-row-card__header">
+                                <div class="mvv-row-card__icon mvv-row-card__icon--magenta">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <h3 class="mvv-row-card__title">Our Mission</h3>
+                            </div>
+                            <p class="mvv-row-card__lead">
+                                To deliver experiences people remember — and keep talking about for generations — by:
+                            </p>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="mvv-mission-list">
+                                <div class="mvv-mission-item">
+                                    <span class="mvv-mission-item__num">01</span>
+                                    <span class="mvv-mission-item__text">Turning every idea into a fully formulated event, tested and proven before it goes live</span>
+                                </div>
+                                <div class="mvv-mission-item">
+                                    <span class="mvv-mission-item__num">02</span>
+                                    <span class="mvv-mission-item__text">Pairing creative vision with flawless, precise execution</span>
+                                </div>
+                                <div class="mvv-mission-item">
+                                    <span class="mvv-mission-item__num">03</span>
+                                    <span class="mvv-mission-item__text">Treating every event as a legacy moment for the people and brands we build it for</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Row 2: Our Vision (Luxury Midnight Glow Card) -->
+                <div class="mvv-row-card mvv-row-card--vision wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                    <div class="row align-items-center gutter-y-30">
+                        <div class="col-lg-4">
+                            <div class="mvv-row-card__header">
+                                <div class="mvv-row-card__icon mvv-row-card__icon--blue">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3 class="mvv-row-card__title">Our Vision</h3>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="mvv-vision-box">
+                                <div class="mvv-vision-box__icon-quote"><i class="fas fa-quote-left"></i></div>
+                                <p class="mvv-vision-box__text">
+                                    To be the most trusted name in events — the lab every brand and family turns to first, the standard other event companies measure themselves against, and a partner people stay loyal to for generations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <section class="cta-two section-space" style="background-color: #F6F7FF; color: #0D1A42; position: relative; overflow: hidden; padding-top: 100px; padding-bottom: 100px;">
-            <div class="cta-two__bg" style="background-image: url(assets/images/shapes/testimonials-bg-shape-2-1.png); opacity: 0.05; position: absolute; top:0; left:0; width:100%; height:100%; background-size: cover; background-position: center; pointer-events: none;"></div>
-            <div class="container" style="position: relative; z-index: 2;">
-                <div class="row align-items-center justify-content-center text-center">
-                    <div class="col-xl-9">
-                        <span class="sec-title__tagline" style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #425CFE; display: block; margin-bottom: 15px;">THE LABORATORY OF EVENTS</span>
-                        <h2 class="sec-title" style="font-size: 30px; font-weight: 600; color: #0D1A42; margin-bottom: 25px;">What's your aim or dream?</h2>
-                        
-                        <h3 class="text-uppercase" style="font-size: 48px; font-weight: 900; line-height: 1.15; letter-spacing: -1px; color: #0D1A42; margin-bottom: 30px;">
-                            Create events <br>
-                            <span style="background: linear-gradient(90deg, #D033AE 0%, #425CFE 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">people talk about.</span><br>
-                            <span style="font-size: 36px; color: #0D1A42; opacity: 0.9;">For free. For years.</span>
-                        </h3>
-                        
-                        <p style="font-size: 18px; line-height: 1.7; color: #4A5375; max-width: 750px; margin: 0 auto 30px;">
-                            We take your idea into the lab — mixed with the right people, the right partners, and precise execution — until it's ready to go live.
+                <!-- Row 3: Our Values -->
+                <div class="mvv-row-card mvv-row-card--values wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                    <div class="mvv-values-header">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="mvv-row-card__icon mvv-row-card__icon--gradient">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h3 class="mvv-row-card__title">Our Values</h3>
+                        </div>
+                        <p class="mvv-row-card__lead">
+                            EventLab's values reflect how we actually work — our formula, if you will. We are idea-first, detail-obsessed, and people-led.
                         </p>
+                    </div>
+
+                    <div class="row gutter-y-24">
+                        <!-- Formulated Creativity -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="mvv-value-item mvv-value-item--magenta">
+                                <div class="mvv-value-item__top">
+                                    <div class="mvv-value-item__icon"><i class="fas fa-flask"></i></div>
+                                    <span class="mvv-value-item__num">01</span>
+                                </div>
+                                <h4 class="mvv-value-item__title">Formulated Creativity</h4>
+                                <p class="mvv-value-item__text">Every idea is treated like an experiment worth getting right — shaped with intention, tested against the brand's purpose, and refined before it ever goes live.</p>
+                            </div>
+                        </div>
+
+                        <!-- Precision Under Pressure -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="mvv-value-item mvv-value-item--blue">
+                                <div class="mvv-value-item__top">
+                                    <div class="mvv-value-item__icon"><i class="fas fa-crosshairs"></i></div>
+                                    <span class="mvv-value-item__num">02</span>
+                                </div>
+                                <h4 class="mvv-value-item__title">Precision Under Pressure</h4>
+                                <p class="mvv-value-item__text">From run sheets to run-of-show, from vendor timelines to the final walkthrough, we work with the accuracy an event needs to hold together when it matters most.</p>
+                            </div>
+                        </div>
+
+                        <!-- Ownership of Every Detail -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="mvv-value-item mvv-value-item--magenta">
+                                <div class="mvv-value-item__top">
+                                    <div class="mvv-value-item__icon"><i class="fas fa-fingerprint"></i></div>
+                                    <span class="mvv-value-item__num">03</span>
+                                </div>
+                                <h4 class="mvv-value-item__title">Ownership of Every Detail</h4>
+                                <p class="mvv-value-item__text">Every person on the team treats each event as their own — caring about the small things, the finishes, the moments no one asks about but everyone notices.</p>
+                            </div>
+                        </div>
+
+                        <!-- Collaboration Above Titles -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="mvv-value-item mvv-value-item--blue">
+                                <div class="mvv-value-item__top">
+                                    <div class="mvv-value-item__icon"><i class="fas fa-users"></i></div>
+                                    <span class="mvv-value-item__num">04</span>
+                                </div>
+                                <h4 class="mvv-value-item__title">Collaboration Above Titles</h4>
+                                <p class="mvv-value-item__text">Strategy, sponsorship, production, and creative don't work in silos here. EventLab's strength is in how closely these disciplines talk to each other.</p>
+                            </div>
+                        </div>
+
+                        <!-- Integrity in Execution -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="mvv-value-item mvv-value-item--magenta">
+                                <div class="mvv-value-item__top">
+                                    <div class="mvv-value-item__icon"><i class="fas fa-shield-alt"></i></div>
+                                    <span class="mvv-value-item__num">05</span>
+                                </div>
+                                <h4 class="mvv-value-item__title">Integrity in Execution</h4>
+                                <p class="mvv-value-item__text">We say what we can deliver, and we deliver what we say. Trust is built one event at a time, and we don't cut corners to protect a deadline.</p>
+                            </div>
+                        </div>
+
+                        <!-- People First -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="mvv-value-item mvv-value-item--blue">
+                                <div class="mvv-value-item__top">
+                                    <div class="mvv-value-item__icon"><i class="fas fa-heart"></i></div>
+                                    <span class="mvv-value-item__num">06</span>
+                                </div>
+                                <h4 class="mvv-value-item__title">People First</h4>
+                                <p class="mvv-value-item__text">We measure success in the people around us — our team, our partners, our communities. The Confidence Project taught us that the best events aren't just produced, they're felt.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="funfact-two section-space-2">
-            <div class="container">
-                <div class="row gutter-y-30">
-                    <div class="col-lg-4 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
-                        <div class="funfact-two__item">
-                            <div class="funfact-two__item__top">
-                                <div class="funfact-two__item__left">
-                                    <h2 class="funfact-two__item__count count-box">
-                                        <span class="count-text" data-stop="300" data-speed="1500">0</span>
-                                        <span>+</span>
-                                    </h2><!-- /.funfact-two__item__count -->
-                                    <h3 class="funfact-two__item__title">Successful Projects</h3>
-                                </div><!-- /.funfact-two__item__left -->
-                                <img src="assets/images/shapes/funfact-shape-2-1.png" alt="shape" class="funfact-two__item__shape">
-                            </div><!-- /.funfact-two__item__top -->
-                            <p class="funfact-two__item__text">Ideas transformed into unforgettable experiences.</p>
-                        </div><!-- /.funfact-two__item -->
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-lg-4 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
-                        <div class="funfact-two__item">
-                            <div class="funfact-two__item__top">
-                                <div class="funfact-two__item__left">
-                                    <h2 class="funfact-two__item__count count-box">
-                                        <span class="count-text" data-stop="50" data-speed="1500">0</span>
-                                        <span>+</span>
-                                    </h2><!-- /.funfact-two__item__count -->
-                                    <h3 class="funfact-two__item__title">Happy Clients</h3>
-                                </div><!-- /.funfact-two__item__left -->
-                                <img src="assets/images/shapes/funfact-shape-2-2.png" alt="shape" class="funfact-two__item__shape">
-                            </div><!-- /.funfact-two__item__top -->
-                            <p class="funfact-two__item__text">Creating experiences that leave a lasting impression.</p>
-                        </div><!-- /.funfact-two__item -->
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-lg-4 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
-                        <div class="funfact-two__item">
-                            <div class="funfact-two__item__top">
-                                <div class="funfact-two__item__left">
-                                    <h2 class="funfact-two__item__count count-box">
-                                        <span class="count-text" data-stop="30" data-speed="1500">0</span>
-                                        <span>+</span>
-                                    </h2><!-- /.funfact-two__item__count -->
-                                    <h3 class="funfact-two__item__title">Smart team members</h3>
-                                </div><!-- /.funfact-two__item__left -->
-                                <img src="assets/images/shapes/funfact-shape-2-3.png" alt="shape" class="funfact-two__item__shape">
-                            </div><!-- /.funfact-two__item__top -->
-                            <p class="funfact-two__item__text">Passion, creativity, and expertise behind every event.</p>
-                        </div><!-- /.funfact-two__item -->
-                    </div><!-- /.col-lg-4 -->
-                </div><!-- /.row gutter-y-30 -->
-            </div><!-- /.container -->
-        </section><!-- /.funfact-two -->
+        
         <section class="services-about section-space" style="background-color: #F8F9FC; padding-top: 100px; padding-bottom: 100px;">
             <div class="container">
                 <!-- Top Section: Centered Title -->
@@ -371,96 +652,45 @@
             </div>
         </section>
 
-        <section class="why-choose-us section-space" style="background-color: #FFFFFF;">
+        <section class="our-aim-section section-space">
             <div class="container">
-                <div class="text-center mb-5">
-                    <span class="sec-title__tagline" style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #425CFE; display: block; margin-bottom: 15px;">Our Standard</span>
-                    <h2 class="sec-title" style="font-size: 40px; font-weight: 900; color: #000000; letter-spacing: -1px; line-height: 1.2; margin-bottom: 20px;">Formulating Event Excellence</h2>
-                    <h4 style="font-size: 20px; font-weight: 700; color: #D033AE; margin-bottom: 25px;">Where Ideas Become Experiences</h4>
-                    <p style="font-size: 16px; color: #4A5375; line-height: 1.7; max-width: 800px; margin: 0 auto;">At EVENTLAB – The Laboratory of Events, we believe every event deserves to be extraordinary. From the first concept to the final moment, our team combines creativity, expertise, and precision to deliver experiences that exceed expectations.</p>
+                <div class="our-aim-panel wow fadeInUp" data-wow-duration="1500ms">
+                    <div class="our-aim__badge">
+                        <span class="our-aim__badge-dot"></span>
+                        Our Aim
+                    </div>
+                    <h2 class="our-aim__title">
+                        Create events<br>
+                        people talk about.<br>
+                        <span class="our-aim__gradient-text">For free. For years.</span>
+                    </h2>
+                    <div class="our-aim__divider">
+                        <span class="our-aim__divider-line"></span>
+                        <span class="our-aim__divider-icon"><i class="fas fa-flask"></i></span>
+                        <span class="our-aim__divider-line"></span>
+                    </div>
+                    <p class="our-aim__text">
+                        We take your idea into the lab — mixed with the right people, the right partners, and precise execution — until it's ready to go live.
+                    </p>
                 </div>
-                
-                <div class="row gutter-y-30">
-                    <!-- Feature 1 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="why-choose-card-v2 p-4 text-center wow fadeInUp" data-wow-delay="0ms" style="background: #FFFFFF; border-radius: 24px; border: 1px solid #EBF0FF; height: 100%; box-shadow: 0 10px 25px rgba(66, 92, 254, 0.03); transition: all 0.3s ease;">
-                            <div class="icon-wrapper d-inline-flex align-items-center justify-content-center mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: rgba(66, 92, 254, 0.1); color: #425CFE; font-size: 22px; transition: all 0.3s ease;">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <h4 style="font-size: 17px; font-weight: 800; color: #0D1A42; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Creative Concepts</h4>
-                            <p style="font-size: 14px; color: #4A5375; line-height: 1.6; margin: 0;">Fresh ideas and innovative concepts that make every event unique, engaging, and memorable.</p>
-                        </div>
+            </div>
+        </section>
+
+        <section class="why-choose-us section-space">
+            <!-- Subtle Ambient Background Glows -->
+            <div style="position: absolute; top: -140px; left: -140px; width: 550px; height: 550px; background: radial-gradient(circle, rgba(66, 92, 254, 0.05) 0%, transparent 70%); pointer-events: none;"></div>
+            <div style="position: absolute; bottom: -140px; right: -140px; width: 550px; height: 550px; background: radial-gradient(circle, rgba(208, 51, 174, 0.05) 0%, transparent 70%); pointer-events: none;"></div>
+            
+            <div class="container position-relative" style="z-index: 2;">
+                <div class="why-choose-full-panel wow fadeInUp" data-wow-duration="1500ms">
+                    <div class="text-center mb-4 pb-2">
+                        <span class="sec-title__tagline" style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #425CFE; display: inline-block; margin-bottom: 14px; background: rgba(66, 92, 254, 0.08); padding: 6px 18px; border-radius: 30px; border: 1px solid rgba(66, 92, 254, 0.16);">The EventLab Difference</span>
+                        <h2 class="sec-title" style="font-size: 44px; font-weight: 900; color: #0A1128; letter-spacing: -1.2px; line-height: 1.25; margin-bottom: 0;">Why Choose EventLab?</h2>
                     </div>
-                    <!-- Feature 2 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="why-choose-card-v2 p-4 text-center wow fadeInUp" data-wow-delay="100ms" style="background: #FFFFFF; border-radius: 24px; border: 1px solid #EBF0FF; height: 100%; box-shadow: 0 10px 25px rgba(66, 92, 254, 0.03); transition: all 0.3s ease;">
-                            <div class="icon-wrapper d-inline-flex align-items-center justify-content-center mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: rgba(208, 51, 174, 0.1); color: #D033AE; font-size: 22px; transition: all 0.3s ease;">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <h4 style="font-size: 17px; font-weight: 800; color: #0D1A42; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Professional Expertise</h4>
-                            <p style="font-size: 14px; color: #4A5375; line-height: 1.6; margin: 0;">An experienced team dedicated to managing every aspect of your event with passion and professionalism.</p>
-                        </div>
-                    </div>
-                    <!-- Feature 3 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="why-choose-card-v2 p-4 text-center wow fadeInUp" data-wow-delay="200ms" style="background: #FFFFFF; border-radius: 24px; border: 1px solid #EBF0FF; height: 100%; box-shadow: 0 10px 25px rgba(66, 92, 254, 0.03); transition: all 0.3s ease;">
-                            <div class="icon-wrapper d-inline-flex align-items-center justify-content-center mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: rgba(66, 92, 254, 0.1); color: #425CFE; font-size: 22px; transition: all 0.3s ease;">
-                                <i class="fas fa-layer-group"></i>
-                            </div>
-                            <h4 style="font-size: 17px; font-weight: 800; color: #0D1A42; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">End-to-End Mgmt</h4>
-                            <p style="font-size: 14px; color: #4A5375; line-height: 1.6; margin: 0;">From planning and production to coordination and execution, we take care of every detail under one roof.</p>
-                        </div>
-                    </div>
-                    <!-- Feature 4 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="why-choose-card-v2 p-4 text-center wow fadeInUp" data-wow-delay="300ms" style="background: #FFFFFF; border-radius: 24px; border: 1px solid #EBF0FF; height: 100%; box-shadow: 0 10px 25px rgba(66, 92, 254, 0.03); transition: all 0.3s ease;">
-                            <div class="icon-wrapper d-inline-flex align-items-center justify-content-center mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: rgba(208, 51, 174, 0.1); color: #D033AE; font-size: 22px; transition: all 0.3s ease;">
-                                <i class="fas fa-eye"></i>
-                            </div>
-                            <h4 style="font-size: 17px; font-weight: 800; color: #0D1A42; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Attention to Detail</h4>
-                            <p style="font-size: 14px; color: #4A5375; line-height: 1.6; margin: 0;">We focus on the little things that make a big difference, ensuring every element is thoughtfully planned and perfectly delivered.</p>
-                        </div>
-                    </div>
-                    <!-- Feature 5 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="why-choose-card-v2 p-4 text-center wow fadeInUp" data-wow-delay="0ms" style="background: #FFFFFF; border-radius: 24px; border: 1px solid #EBF0FF; height: 100%; box-shadow: 0 10px 25px rgba(66, 92, 254, 0.03); transition: all 0.3s ease;">
-                            <div class="icon-wrapper d-inline-flex align-items-center justify-content-center mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: rgba(208, 51, 174, 0.1); color: #D033AE; font-size: 22px; transition: all 0.3s ease;">
-                                <i class="fas fa-calendar-check"></i>
-                            </div>
-                            <h4 style="font-size: 17px; font-weight: 800; color: #0D1A42; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Reliable Execution</h4>
-                            <p style="font-size: 14px; color: #4A5375; line-height: 1.6; margin: 0;">Professional coordination, timely delivery, and seamless execution ensure your event runs smoothly from start to finish.</p>
-                        </div>
-                    </div>
-                    <!-- Feature 6 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="why-choose-card-v2 p-4 text-center wow fadeInUp" data-wow-delay="100ms" style="background: #FFFFFF; border-radius: 24px; border: 1px solid #EBF0FF; height: 100%; box-shadow: 0 10px 25px rgba(66, 92, 254, 0.03); transition: all 0.3s ease;">
-                            <div class="icon-wrapper d-inline-flex align-items-center justify-content-center mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: rgba(66, 92, 254, 0.1); color: #425CFE; font-size: 22px; transition: all 0.3s ease;">
-                                <i class="fas fa-sliders-h"></i>
-                            </div>
-                            <h4 style="font-size: 17px; font-weight: 800; color: #0D1A42; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Customized Exp.</h4>
-                            <p style="font-size: 14px; color: #4A5375; line-height: 1.6; margin: 0;">No two events are the same. We tailor every experience around your vision, audience, objectives, and budget.</p>
-                        </div>
-                    </div>
-                    <!-- Feature 7 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="why-choose-card-v2 p-4 text-center wow fadeInUp" data-wow-delay="200ms" style="background: #FFFFFF; border-radius: 24px; border: 1px solid #EBF0FF; height: 100%; box-shadow: 0 10px 25px rgba(66, 92, 254, 0.03); transition: all 0.3s ease;">
-                            <div class="icon-wrapper d-inline-flex align-items-center justify-content-center mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: rgba(208, 51, 174, 0.1); color: #D033AE; font-size: 22px; transition: all 0.3s ease;">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <h4 style="font-size: 17px; font-weight: 800; color: #0D1A42; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Trusted Partnerships</h4>
-                            <p style="font-size: 14px; color: #4A5375; line-height: 1.6; margin: 0;">Our strong network of venues, vendors, artists, suppliers, and industry professionals helps us deliver exceptional experiences.</p>
-                        </div>
-                    </div>
-                    <!-- Feature 8 -->
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="why-choose-card-v2 p-4 text-center wow fadeInUp" data-wow-delay="300ms" style="background: #FFFFFF; border-radius: 24px; border: 1px solid #EBF0FF; height: 100%; box-shadow: 0 10px 25px rgba(66, 92, 254, 0.03); transition: all 0.3s ease;">
-                            <div class="icon-wrapper d-inline-flex align-items-center justify-content-center mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: rgba(66, 92, 254, 0.1); color: #425CFE; font-size: 22px; transition: all 0.3s ease;">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <h4 style="font-size: 17px; font-weight: 800; color: #0D1A42; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Memorable Exp.</h4>
-                            <p style="font-size: 14px; color: #4A5375; line-height: 1.6; margin: 0;">We don't simply organize events—we create moments that connect people, inspire emotions, and stay memorable.</p>
-                        </div>
-                    </div>
+                    
+                    <p class="why-choose-exact-text">
+                        Because an event isn't just booked with us — <span class="gradient-text">it's built with us.</span> We formulate, not just plan. Every idea goes through the lab: tested, structured, and refined before it's ready to go live — not just scheduled on a run sheet. Proven, not promised. The Confidence Project wasn't a pitch deck — it was a live experiment that delivered a grand success on day one. We build track record, not talk. One team, every discipline. Strategy, sponsorship, artist management, production, and content all sit under one roof — so nothing gets lost in handoffs between vendors. Purpose-led, not just polished. We care as much about who an event moves as how it looks — see the Kids Ramp Walk with Deepti Special School as proof. Built for the long run. We're not chasing one great event. We're formulating a name people trust for generations — starting with yours.
+                    </p>
                 </div>
             </div>
         </section>
@@ -683,7 +913,7 @@
                         <div class="col-xl-3 col-lg-4 col-md-5 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
                             <div class="footer-widget footer-widget--about">
                                 <a href="index.html" class="footer-widget__logo logo-retina">
-                                    <img src="assets/images/Eventslab logo.png" alt="Eventslab Logo" width="250">
+                                    <img src="assets/images/logo event.png" alt="Eventslab Logo" width="320">
                                 </a>
                             </div><!-- /.footer-widget -->
                         </div><!-- /.col-xl-3 -->
@@ -705,7 +935,7 @@
                                 <ul class="list-unstyled footer-widget__info">
                                     <li>
                                         <span class="footer-widget__info__icon"><i class="icon-email"></i></span>
-                                        <span><a href="mailto:hello@eventlabs.in">hello@eventlabs.in</a></span>
+                                        <span><a href="mailto:Info@eventlab.events">Info@eventlab.events</a></span>
                                     </li>
                                     <li>
                                         <span class="footer-widget__info__icon"><i class="icon-phone-2"></i></span>
@@ -732,6 +962,7 @@
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About Us</a></li>
                                     <li><a href="events.html">Events</a></li>
+                                    <li><a href="upcoming.html">Upcoming Events</a></li>
                                     <li><a href="gallery.html">Gallery</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul><!-- /.list-unstyled footer-widget__links -->
@@ -758,7 +989,7 @@
         <div class="mobile-nav__content">
             <span class="mobile-nav__close mobile-nav__toggler"><i class="icon-close"></i></span>
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/Eventslab logo.png" width="250" alt="Eventslab Logo" /></a>
+                <a href="index.html" aria-label="logo image"><img src="assets/images/logo event.png" width="300" alt="Eventslab Logo" /></a>
             </div><!-- /.logo-box -->
             <div class="mobile-nav__container"></div><!-- /.mobile-nav__container -->
             <div class="my-4 text-center">
@@ -769,7 +1000,7 @@
             <ul class="mobile-nav__contact list-unstyled">
                 <li>
                     <span class="mobile-nav__contact__icon"><i class="fa fa-envelope"></i></span>
-                    <a href="mailto:hello@eventlabs.in">hello@eventlabs.in</a>
+                    <a href="mailto:Info@eventlab.events">Info@eventlab.events</a>
                 </li>
                 <li>
                     <span class="mobile-nav__contact__icon"><i class="fa fa-phone-alt"></i></span>
