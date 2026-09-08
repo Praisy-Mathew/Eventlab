@@ -31,6 +31,184 @@
 
     <!-- template styles -->
     <link rel="stylesheet" href="assets/css/aigence.css" />
+    <style>
+        /* Event Image Slider & Card Styling */
+        .event-card-rich {
+            background: #FFFFFF;
+            border-radius: 30px;
+            border: 1px solid #EBF0FF;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        .event-card-rich:hover {
+            box-shadow: 0 20px 50px rgba(66, 92, 254, 0.08);
+            border-color: #DCE5FA;
+        }
+        .event-image-slider-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #0A0F26;
+            box-shadow: 0 16px 40px -10px rgba(13, 26, 66, 0.15);
+        }
+        .event-image-carousel {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        .event-carousel-slide {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .event-carousel-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10, 15, 38, 0.25) 0%, transparent 40%, rgba(10, 15, 38, 0.45) 100%);
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .event-carousel-img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .event-carousel-slide:hover .event-carousel-img {
+            transform: scale(1.03);
+        }
+        .event-image-slider__badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            background: #28A745;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.35);
+            pointer-events: none;
+        }
+        .event-image-slider__counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            background: rgba(13, 26, 66, 0.65);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            pointer-events: none;
+        }
+        /* Custom Owl Nav Overrides */
+        .event-image-carousel .owl-nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 16px;
+            pointer-events: none;
+            z-index: 10;
+            margin: 0 !important;
+        }
+        .event-image-carousel .owl-nav button.owl-prev,
+        .event-image-carousel .owl-nav button.owl-next {
+            width: 44px;
+            height: 44px;
+            border-radius: 50% !important;
+            background: rgba(13, 26, 66, 0.65) !important;
+            backdrop-filter: blur(8px);
+            color: #FFFFFF !important;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            pointer-events: auto;
+            transition: all 0.3s ease !important;
+            border: 1px solid rgba(255, 255, 255, 0.25) !important;
+            outline: none;
+            margin: 0 !important;
+            font-size: 15px;
+        }
+        .event-image-carousel .owl-nav button.owl-prev:hover,
+        .event-image-carousel .owl-nav button.owl-next:hover {
+            background: linear-gradient(135deg, #425CFE 0%, #D033AE 100%) !important;
+            transform: scale(1.1);
+            box-shadow: 0 6px 18px rgba(66, 92, 254, 0.45) !important;
+            border-color: transparent !important;
+        }
+        /* Custom Owl Dots Overrides */
+        .event-image-carousel .owl-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 0;
+            right: 0;
+            margin: 0 !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+            z-index: 10;
+        }
+        .event-image-carousel .owl-dots .owl-dot span {
+            width: 8px;
+            height: 8px;
+            margin: 0 !important;
+            background: rgba(255, 255, 255, 0.5) !important;
+            border-radius: 20px;
+            transition: all 0.3s ease !important;
+        }
+        .event-image-carousel .owl-dots .owl-dot.active span {
+            width: 24px;
+            background: linear-gradient(90deg, #425CFE 0%, #D033AE 100%) !important;
+            box-shadow: 0 2px 8px rgba(208, 51, 174, 0.5);
+        }
+        @media (max-width: 991px) {
+            .event-carousel-img {
+                height: 420px;
+            }
+        }
+        @media (max-width: 767px) {
+            .event-carousel-img {
+                height: 330px;
+            }
+            .event-image-carousel .owl-nav button.owl-prev,
+            .event-image-carousel .owl-nav button.owl-next {
+                width: 36px;
+                height: 36px;
+                font-size: 13px;
+            }
+            .event-image-slider__badge {
+                top: 14px;
+                left: 14px;
+                font-size: 10.5px;
+                padding: 5px 12px;
+            }
+            .event-image-slider__counter {
+                top: 14px;
+                right: 14px;
+                font-size: 10px;
+                padding: 4px 10px;
+            }
+        }
+    </style>
 </head>
 
 <body class="custom-cursor">
@@ -131,13 +309,251 @@
                     <div class="col-12">
                         <div class="event-card-rich p-4 p-lg-5" style="background: #FFFFFF; border-radius: 30px; border: 1px solid #EBF0FF; box-shadow: 0 15px 40px rgba(0,0,0,0.03); transition: all 0.3s ease;">
                             <div class="row align-items-center">
-                                <div class="col-lg-5 mb-4 mb-lg-0">
-                                    <div class="position-relative overflow-hidden" style="border-radius: 20px;">
-                                        <img src="assets/images/events5.jpg" alt="The Confidence Project" style="width: 100%; height: 350px; object-fit: cover; border-radius: 20px;">
-                                        <span class="position-absolute" style="top: 20px; left: 20px; background: #28A745; color: white; font-size: 12px; font-weight: 800; text-transform: uppercase; padding: 6px 16px; border-radius: 30px; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);">Grand Success</span>
+                                <div class="col-lg-6 mb-4 mb-lg-0">
+                                    <div class="event-image-slider-wrapper">
+                                        <span class="event-image-slider__badge">Grand Success</span>
+                                        <span class="event-image-slider__counter"><i class="fas fa-camera"></i> <span id="event-slide-curr">1</span> / 45 Photos</span>
+                                        <div class="event-image-carousel aigence-owl__carousel owl-theme owl-carousel" data-owl-options='{
+                                            "items": 1,
+                                            "margin": 0,
+                                            "loop": true,
+                                            "smartSpeed": 700,
+                                            "autoplay": true,
+                                            "autoplayTimeout": 3500,
+                                            "autoplayHoverPause": true,
+                                            "nav": true,
+                                            "dots": false,
+                                            "navText": ["<i class=\"fas fa-chevron-left\"></i>","<i class=\"fas fa-chevron-right\"></i>"]
+                                        }'>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0953-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0953-compresso.jpg" alt="The Confidence Project - Photo 1" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0022-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0022-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 2" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0041-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0041-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 3" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0071-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0071-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 4" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0157-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0157-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 5" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0255-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0255-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 6" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0268-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0268-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 7" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0276-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0276-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 8" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0285-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0285-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 9" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0307-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0307-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 10" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0338-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0338-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 11" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0458-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0458-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 12" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0471-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0471-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 13" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0490-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0490-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 14" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0503-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0503-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 15" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0528 (1)-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0528 (1)-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 16" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0528-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0528-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 17" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0544-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0544-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 18" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0574-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0574-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 19" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0594-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0594-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 20" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0613-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0613-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 21" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0635-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0635-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 22" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0651 (1)-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0651 (1)-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 23" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0651-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0651-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 24" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0696-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0696-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 25" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0736 (1)-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0736 (1)-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 26" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0736-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0736-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 27" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0751-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0751-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 28" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0754-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0754-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 29" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0759-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0759-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 30" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0767-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0767-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 31" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0780-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0780-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 32" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0786-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0786-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 33" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0797-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0797-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 34" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0804-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0804-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 35" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0810-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0810-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 36" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0822-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0822-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 37" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0829-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0829-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 38" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0835-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0835-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 39" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0843-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0843-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 40" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_0870-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_0870-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 41" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_1042-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_1042-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 42" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_1065-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_1065-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 43" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_1144-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_1144-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 44" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="assets/images/IMG_1180-compresso.jpg" class="event-carousel-slide img-popup" data-group="confidence-event">
+                                                    <img src="assets/images/IMG_1180-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 45" class="event-carousel-img">
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-7">
+                                <div class="col-lg-6">
                                     <div class="event-card-rich__content pl-lg-3">
                                         <div class="d-flex align-items-center mb-3">
                                             <span style="font-size: 12px; font-weight: 800; color: #D033AE; background: #FFF0FD; padding: 4px 12px; border-radius: 30px; text-transform: uppercase; letter-spacing: 1.5px;">Result — Grand Success</span>
@@ -330,6 +746,36 @@
     <script src="assets/vendors/gsap/aigence-split.js"></script>
     <!-- template js -->
     <script src="assets/js/aigence.js"></script>
+    <script>
+        $(document).ready(function () {
+            var $carousel = $('.event-image-carousel');
+            if ($carousel.length) {
+                if (!$carousel.hasClass('owl-loaded')) {
+                    $carousel.owlCarousel({
+                        items: 1,
+                        margin: 0,
+                        loop: true,
+                        smartSpeed: 700,
+                        autoplay: true,
+                        autoplayTimeout: 3500,
+                        autoplayHoverPause: true,
+                        nav: true,
+                        dots: false,
+                        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>']
+                    });
+                }
+                $carousel.on('changed.owl.carousel', function(event) {
+                    if (!event.namespace) return;
+                    var total = event.item.count;
+                    if (!total) return;
+                    var clones = event.relatedTarget._clones ? event.relatedTarget._clones.length / 2 : 0;
+                    var current = (event.item.index - clones) % total;
+                    var num = (current < 0 ? current + total : current) + 1;
+                    $('#event-slide-curr').text(num);
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -31,6 +31,159 @@
 
     <!-- template styles -->
     <link rel="stylesheet" href="assets/css/aigence.css" />
+    <style>
+        /* Gallery Page Styling */
+        .gallery-page {
+            background-color: #F8FAFE;
+            padding-top: 80px;
+            padding-bottom: 90px;
+        }
+        .gallery-header {
+            margin-bottom: 50px;
+        }
+        .gallery-header__tag {
+            display: inline-block;
+            background: rgba(66, 92, 254, 0.08);
+            color: #425CFE;
+            border: 1px solid rgba(66, 92, 254, 0.18);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            padding: 6px 20px;
+            border-radius: 30px;
+            margin-bottom: 16px;
+        }
+        .gallery-header__title {
+            font-size: 44px;
+            font-weight: 900;
+            color: #0A1128;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+        .gallery-header__title .gradient-text {
+            background: linear-gradient(135deg, #425CFE 0%, #D033AE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gallery-header__text {
+            font-size: 16.5px;
+            color: #4A5375;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+        .gallery-item-card {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            background: #FFFFFF;
+            border: 1px solid #E5EDFC;
+            box-shadow: 0 10px 30px -10px rgba(15, 23, 58, 0.06);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            height: 320px;
+        }
+        .gallery-item-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px -10px rgba(66, 92, 254, 0.18);
+            border-color: rgba(66, 92, 254, 0.35);
+        }
+        .gallery-item-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-item-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .gallery-item-card:hover .gallery-item-img {
+            transform: scale(1.08);
+        }
+        .gallery-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(7, 11, 30, 0.15) 0%, rgba(7, 11, 30, 0.75) 100%);
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            transition: opacity 0.35s ease;
+            z-index: 2;
+        }
+        .gallery-item-card:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+        .gallery-item-top {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .gallery-item-badge {
+            background: rgba(13, 26, 66, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+        .gallery-item-center {
+            align-self: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #425CFE 0%, #D033AE 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 18px;
+            box-shadow: 0 8px 20px rgba(66, 92, 254, 0.4);
+            transform: scale(0.8);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .gallery-item-card:hover .gallery-item-center {
+            transform: scale(1);
+        }
+        .gallery-item-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .gallery-item-caption {
+            color: #FFFFFF;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            margin: 0;
+        }
+        @media (max-width: 991px) {
+            .gallery-header__title {
+                font-size: 34px;
+            }
+            .gallery-item-card {
+                height: 280px;
+            }
+        }
+        @media (max-width: 767px) {
+            .gallery-header__title {
+                font-size: 28px;
+            }
+            .gallery-item-card {
+                height: 250px;
+            }
+        }
+    </style>
 </head>
 
 <body class="custom-cursor">
@@ -125,16 +278,817 @@
         </section><!-- /.page-header -->
 
         <section class="gallery-page section-space">
-            <div class="container text-center">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="gallery-page__empty py-5" style="background: #FFFFFF; border-radius: 30px; border: 1px solid #EBF0FF; box-shadow: 0 15px 40px rgba(0,0,0,0.03); padding: 60px 30px;">
-                            <h3 style="font-size: 32px; font-weight: 800; color: #0D1A42; margin-bottom: 15px;">Gallery Coming Soon</h3>
-                            <p style="font-size: 16px; color: #6B7280; max-width: 550px; margin: 0 auto 30px; line-height: 1.7;">
-                                We are currently curating our latest event memories and photos. Stay tuned for exciting moments from our upcoming and past events!
-                            </p>
-                            <a href="index.html" class="aigence-btn">
-                                <span class="aigence-btn__text">Back to Home</span>
+            <div class="container">
+                
+
+                <div class="row gutter-y-30">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0953-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 1 of 45">
+                                <img src="assets/images/IMG_0953-compresso.jpg" alt="The Confidence Project - Photo 1" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 1 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0022-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 2 of 45">
+                                <img src="assets/images/IMG_0022-compresso.jpg" alt="The Confidence Project - Photo 2" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 2 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0041-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 3 of 45">
+                                <img src="assets/images/IMG_0041-compresso.jpg" alt="The Confidence Project - Photo 3" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 3 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0071-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 4 of 45">
+                                <img src="assets/images/IMG_0071-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 4" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 4 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0157-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 5 of 45">
+                                <img src="assets/images/IMG_0157-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 5" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 5 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0255-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 6 of 45">
+                                <img src="assets/images/IMG_0255-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 6" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 6 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0268-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 7 of 45">
+                                <img src="assets/images/IMG_0268-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 7" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 7 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0276-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 8 of 45">
+                                <img src="assets/images/IMG_0276-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 8" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 8 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0285-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 9 of 45">
+                                <img src="assets/images/IMG_0285-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 9" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 9 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0307-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 10 of 45">
+                                <img src="assets/images/IMG_0307-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 10" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 10 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0338-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 11 of 45">
+                                <img src="assets/images/IMG_0338-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 11" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 11 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0458-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 12 of 45">
+                                <img src="assets/images/IMG_0458-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 12" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 12 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0471-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 13 of 45">
+                                <img src="assets/images/IMG_0471-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 13" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 13 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0490-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 14 of 45">
+                                <img src="assets/images/IMG_0490-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 14" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 14 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0503-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 15 of 45">
+                                <img src="assets/images/IMG_0503-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 15" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 15 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0528 (1)-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 16 of 45">
+                                <img src="assets/images/IMG_0528 (1)-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 16" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 16 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0528-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 17 of 45">
+                                <img src="assets/images/IMG_0528-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 17" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 17 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0544-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 18 of 45">
+                                <img src="assets/images/IMG_0544-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 18" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 18 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0574-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 19 of 45">
+                                <img src="assets/images/IMG_0574-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 19" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 19 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0594-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 20 of 45">
+                                <img src="assets/images/IMG_0594-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 20" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 20 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0613-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 21 of 45">
+                                <img src="assets/images/IMG_0613-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 21" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 21 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0635-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 22 of 45">
+                                <img src="assets/images/IMG_0635-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 22" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 22 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0651 (1)-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 23 of 45">
+                                <img src="assets/images/IMG_0651 (1)-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 23" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 23 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0651-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 24 of 45">
+                                <img src="assets/images/IMG_0651-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 24" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 24 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0696-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 25 of 45">
+                                <img src="assets/images/IMG_0696-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 25" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 25 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0736 (1)-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 26 of 45">
+                                <img src="assets/images/IMG_0736 (1)-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 26" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 26 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0736-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 27 of 45">
+                                <img src="assets/images/IMG_0736-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 27" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 27 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0751-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 28 of 45">
+                                <img src="assets/images/IMG_0751-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 28" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 28 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0754-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 29 of 45">
+                                <img src="assets/images/IMG_0754-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 29" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 29 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0759-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 30 of 45">
+                                <img src="assets/images/IMG_0759-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 30" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 30 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0767-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 31 of 45">
+                                <img src="assets/images/IMG_0767-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 31" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 31 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0780-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 32 of 45">
+                                <img src="assets/images/IMG_0780-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 32" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 32 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0786-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 33 of 45">
+                                <img src="assets/images/IMG_0786-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 33" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 33 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0797-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 34 of 45">
+                                <img src="assets/images/IMG_0797-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 34" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 34 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0804-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 35 of 45">
+                                <img src="assets/images/IMG_0804-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 35" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 35 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0810-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 36 of 45">
+                                <img src="assets/images/IMG_0810-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 36" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 36 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0822-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 37 of 45">
+                                <img src="assets/images/IMG_0822-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 37" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 37 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0829-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 38 of 45">
+                                <img src="assets/images/IMG_0829-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 38" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 38 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0835-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 39 of 45">
+                                <img src="assets/images/IMG_0835-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 39" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 39 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0843-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 40 of 45">
+                                <img src="assets/images/IMG_0843-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 40" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 40 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_0870-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 41 of 45">
+                                <img src="assets/images/IMG_0870-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 41" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 41 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_1042-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 42 of 45">
+                                <img src="assets/images/IMG_1042-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 42" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 42 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_1065-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 43 of 45">
+                                <img src="assets/images/IMG_1065-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 43" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 43 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_1144-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 44 of 45">
+                                <img src="assets/images/IMG_1144-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 44" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 44 of 45</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                        <div class="gallery-item-card">
+                            <a href="assets/images/IMG_1180-compresso.jpg" class="gallery-item-link img-popup" data-group="1" title="The Confidence Project - Photo 45 of 45">
+                                <img src="assets/images/IMG_1180-compresso.jpg" loading="lazy" alt="The Confidence Project - Photo 45" class="gallery-item-img">
+                                <div class="gallery-item-overlay">
+                                    <div class="gallery-item-top">
+                                        <span class="gallery-item-badge">Confidence Project</span>
+                                    </div>
+                                    <div class="gallery-item-center">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="gallery-item-bottom">
+                                        <p class="gallery-item-caption">Photo 45 of 45</p>
+                                    </div>
+                                </div>
                             </a>
                         </div>
                     </div>
